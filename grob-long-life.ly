@@ -1,4 +1,4 @@
-\version "2.22.0"  % necessary for upgrading to future LilyPond versions.
+\version "2.18.0"  % necessary for upgrading to future LilyPond versions.
 
 \header{
   title = "Долгая счастливая жизнь (ГрОб)"
@@ -39,7 +39,7 @@ altoWords = \lyricmode {
 \score {
   \layout { }
   \midi {
-    \tempo 4 = 72
+    \tempo 4 = 98
   }
   \new ChoirStaff <<
     \new Staff = "women" <<
