@@ -30,7 +30,7 @@ tenorMusic = \relative {
 bassMusic = \relative {
   \partial 4 d4\rest | R1*4 |
   | R1 | r2 r4 r8 c8 | a a a a16 a'~ a8 g f e~ | e2. a,8 b | c4 a8 a16 a'~ a8 g f e~ | e2. a,8 b |
-  c b c c a' g f g~ | g2 a |
+  c b c c a' g f g~ | g2( a) |
 }
 
 
@@ -41,6 +41,7 @@ altoWords = \lyricmode {
 
 bassWords = \lyricmode {
  Без рыбь е в зо ло той по лы~нье, ве зде сущ ность мы ши ной во зни, злы е
+ cу мер ки бес смерт но го дня~
 }
 
 \score {
