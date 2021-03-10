@@ -4,36 +4,43 @@
   title = "Долгая счастливая жизнь (ГрОб)"
 }
 
-\paper {
-  top-system-spacing.basic-distance = #10
-  score-system-spacing.basic-distance = #20
-  system-system-spacing.basic-distance = #20
-  last-bottom-spacing.basic-distance = #10
-}
-
 global = {
   \key c \major
   \time 4/4
 }
 
 sopMusic = \relative {
-  \partial 4 d'8 e | f f f f e e e e~ | e b'\rest b2\rest d,8 e 
+  \partial 4 d'8 e | f f f f e e e e~ | e r8 r2 d8 e | f4 f8 f e e e e~ | e r8 r4 r4 d8 e |
+  f f f f e e e e~ | e1 | a2~\( a | g~ g\) | a~\( a | g~ g\) |
+  a~\( a | g( fis)\) |
 }
 
 altoMusic = \relative {
-  \partial 4 d'8 d | c c c c c c c b~ | b b'\rest b2\rest d,8 d
+  \partial 4 a8  b | c c c c c c c b~ | b r8 r2 a8 b | c4 c8 c c c c b~ | b r8 r4 r4 a8 b |
+  c c c c c c c  b~ | b1 | e2~\( e | e( d)\) | e~\( f | d~ d\) |
+  e\( f | e( fis)\) |
 }
 
 tenorMusic = \relative {
-  \partial 4 a8 a | a a a a a a a g~ | g d\rest d2\rest a'8 a
+  \partial 4 a8 b | a a a a a a a gis~ | gis r8 r2 a8 b | a4 a8 a a a a gis~ | gis r8 r4 r4 a8 b | 
+  a a a a a a a gis~ | gis1 | c2~\( c | c~ b\) | c~\( c | c~ b\) |
+  c~\( c | c( d)\) |
 }
 
 bassMusic = \relative {
-  \partial 4 d8 e | f f f f a a a e~ | e d\rest d2\rest d8 e
+  \partial 4 d4\rest | R1*4 |
+  | R1 | r2 r4 r8 c8 | a a a a16 a'~ a8 g f e~ | e2. a,8 b | c4 a8 a16 a'~ a8 g f e~ | e2. a,8 b |
+  c b c c a' g f g~ | g2 a |
 }
 
+
 altoWords = \lyricmode {
-  По тря се ни ям и пра здни кам- нет!
+  По тря се ни ям и пра здни кам- нет! Го ри зон там и праз дни кам- нет! Вдох но
+  ве ни ям и праз дни кам нет!
+}
+
+bassWords = \lyricmode {
+ Без рыбь е в зо ло той по лы~нье, ве зде сущ ность мы ши ной во зни, злы е
 }
 
 \score {
@@ -44,26 +51,24 @@ altoWords = \lyricmode {
   \new ChoirStaff <<
     \new Staff = "women" <<
       \new Voice = "sopranos" {
-        \voiceOne
-        << \global \sopMusic >>
-      }
-      \new Voice = "altos" {
-        \voiceTwo
-        << \global \altoMusic >>
+      <<
+        \global \sopMusic
+        \global \altoMusic
+        \global \tenorMusic
+      >>
       }
     >>
     \new Lyrics = "altos"
-
     \new Staff = "men" <<
       \clef bass
-      \new Voice = "tenors" {
-        \voiceOne
-        << \global \tenorMusic >>
-      }
       \new Voice = "basses" {
-        \voiceTwo << \global \bassMusic >>
+        <<
+          \global \bassMusic
+        >>
       }
     >>
-    \context Lyrics = "" \lyricsto "altos" \altoWords
+    \context Lyrics = "" \lyricsto "sopranos" \altoWords
+    \new Lyrics = "basses"
+    \context Lyrics = "basses" \lyricsto "basses" \bassWords
   >>
 }
