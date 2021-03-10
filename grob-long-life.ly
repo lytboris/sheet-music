@@ -60,7 +60,7 @@ bassWords = \lyricmode {
       }
     >>
     \new Lyrics = "altos"
-    \new Staff = "men" <<
+    \new Staff = "men" \with {midiInstrument = #"cello"}  <<
       \clef bass
       \new Voice = "basses" {
         <<
