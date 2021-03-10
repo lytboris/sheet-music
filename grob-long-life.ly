@@ -50,7 +50,7 @@ bassWords = \lyricmode {
     \tempo 4 = 98
   }
   \new ChoirStaff <<
-    \new Staff = "women" <<
+    \new Staff = "women" \with {midiInstrument = #"clarinet"} <<
       \new Voice = "sopranos" {
       <<
         \global \sopMusic
