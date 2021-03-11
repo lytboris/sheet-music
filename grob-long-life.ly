@@ -42,7 +42,7 @@ bassMusic = \relative {
   c b c c a' g f g~ | g2( a) | g8 g g g b, b b e~ | e2~ e8 c c c | g' g g g b, b b e~ |
   e4 r r8 c c c| g' g g g b, b b e~ | e2 d8 d d d | c2 b8 b b b |
   e2 d8 d d d | c2 b8 b b b | e2. d8 e | f f f f e e e4 | e2. d8 e | f4 f8 f e e e e~ |
-  e2. d8 e | f4 f8 f e e e e~ | e4 e e e8 d16 c~ | c4  a8. a16 a'8 g f g~ | g4.( f8 e4) e8 e16 e |
+  e2. d8 e | f4 f8 f e e e e~ | e4 e e e8 d16 c~ | c4  a8. a16 a'8 g f g~( | g4. f8 e4) e8 e16 e |
 }
 
 
