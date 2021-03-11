@@ -68,9 +68,10 @@ bassWords = \lyricmode {
     \new Staff = "women" \with {midiInstrument = #"clarinet"} <<
       \new Voice = "sopranos" {
       <<
-        \global \sopMusic
-        \global \altoMusic
-        \global \tenorMusic
+        \global
+        \sopMusic
+        \altoMusic
+        \tenorMusic
       >>
       }
     >>
