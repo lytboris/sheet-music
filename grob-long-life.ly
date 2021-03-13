@@ -26,9 +26,10 @@ sopMusic = \relative {
   c4 a8 a c' b a g~ | g2 r4 e8 d | e e e e e' d c g~ | g2( a) |
   }
   {
-  \partial 4 r4
+  \partial 4 b4\repeatTie
   }
   }
+  a2 \tuplet 3/2 4 { a8 a b c b a } | b4 gis e2 | f a4 f | e1
 }
 
 altoMusicChorus = \relative {
@@ -48,9 +49,10 @@ altoMusic = \relative {
   a4 a8 a a' g f e~ | e2 r4  e8 d | e e e e <c' a> <b g> <a f> e~ | e2 fis |
   }                
   {
-  r4
+  g4\repeatTie
   }
   }
+  f2~ \tuplet 3/2 4 { f8 f g a g f } | << { \voiceOne s1 s1 s1 } \new Voice { \voiceTwo e1 | c | e } >> \oneVoice |
 }
 
 tenorMusicChorus = \relative {
@@ -70,9 +72,12 @@ tenorMusic = \relative {
   c4 a8 a c c c c~ | c2 r4 b8 b | c c c c c c c c~ | c2( d) |
   }
   {
-  r4
+  e4\repeatTie | 
   }
   }
+  %% moved to bass staff
+  << { \voiceOne s1 s1 s1 s1 } \new Voice {  } >> \oneVoice |
+  
 }
 
 baseMusicChorus = \relative {
@@ -92,9 +97,11 @@ bassMusic = \relative {
   e4 e8 e f f f g~ | g2 r4 g8 g | a a a g f f f g~ | g2( d) |
   }
   {
-  r4 
+  e4\repeatTie 
   }
   }
+  << { \voiceOne s1 s1 s1 s1 } \new Voice { f1 | e | f2~ \tuplet 3/2 4 { f8 f g a g f } | e1 }
+  \new Voice { \voiceTwo \stemUp c'2. a4 | b2. e8 d | c2~ \tuplet 3/2 4 { c8 a b c b a } | d2 b }>> \oneVoice
 }
 
 
