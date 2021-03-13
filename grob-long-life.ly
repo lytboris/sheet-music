@@ -169,7 +169,5 @@ bassWordsThirdVerse = \lyricmode {
     \new Lyrics = "basses"
     \context Lyrics = "basses" \lyricsto "basses" \bassWords
 
-%%    \new Lyrics = "bassesDown"
-%%    \context Lyrics = "bassesDown" \lyricsto "basses" \bassFirstVerseWords
   >>
 }
