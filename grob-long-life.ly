@@ -1,4 +1,4 @@
-\version "2.18.0"  % necessary for upgrading to future LilyPond versions.
+\version "2.22.0"  % necessary for upgrading to future LilyPond versions.
 
 \header{
   title = "Долгая счастливая жизнь (ГрОб)"
@@ -10,7 +10,7 @@ global = {
 }
 
 sopMusicChorus = \relative {
-  g'8 g g g fis fis fis g~ | g2~ g8 c c c | b b b b a a a g~ |
+  g'8^\markup {\box "Привев"} g g g fis fis fis g~ | g2~ g8 c c c | b b b b a a a g~ |
   g4 r r8 c c c | d b b b a a a b~ | b2 a8 a a a | g2 fis8 g a fis |
   g8. a16 b4 a8 a a a | g2 b8 b b b | \partial 2. b2. \bar ""
 }
@@ -25,7 +25,7 @@ sopMusic = \relative {
   \sopPreChorusMusic
   \repeat volta 2 { \sopMusicChorus }
   \alternative { {
-  \partial 4 r4 | a2~\( a | gis1\) | a2~\( a |
+  \partial 4 r4 | a2~\(^\markup {\box "2 куплет"}  a | gis1\) | a2~\( a |
   gis1\) | a2~ a | gis2. e8 d16 c~ | c4  a8. a16 a'8 g f g~ | g2 r4 b,8 b16 c~ |
   c4 a8 a c' b a g~ | g2 r4 e8 d | e e e e e' d c g~ | g2( a) |
   }
@@ -107,13 +107,25 @@ tenorMusic = \relative {
   }
   %% moved to bass staff
   << { \voiceOne s1 s1 s1 s1 } \new Voice {  } >> \oneVoice |
-  s1 s1 s1 s1 \tenorPreChorusMusic  
+  s1 s1 s1 s1 \tenorPreChorusMusic 
+  \new Staff {
+  \once \omit Staff.TimeSignature
+  \repeat percent 2 { g8 d b g' fis dis b fis' | e b e d c e g e |}
+   8 d b g' fis dis b fis' | e b e d fis d a d | g e c e dis b dis fis | e b e d fis d a d |
+  c2 dis8 dis dis dis | c2 dis8 dis dis dis | e1
+  }
 }
 
 baseMusicChorus = \relative {
   g8 g g g b, b b e~ | e2~ e8 c c c | g' g g g b, b b e~ |
   e4 r r8 c c c| g' g g g b, b b e~ | e2 d8 d d d | c2 b8 b b b |
   e2 d8 d d d | c2 b8 b b b | e2. 
+}
+
+bassWordsThirdVerse = \markup \italic \column {
+ "Искушениям и праздни кам - нет"
+ "Преступлениям и праздникам - нет"
+ "Исключениям и праздникам - нет, нет, нет."
 }
 
 bassMusic = \relative {
@@ -131,7 +143,7 @@ bassMusic = \relative {
   }
   }
   << { \voiceOne \stemDown { f1 | e | f2~ \tuplet 3/2 4 { f8 f g a g f } | e1 | }
-     \repeat volta 3 {f2 a,4. e'8|}
+     \repeat volta 3 {f2_\markup { \bassWordsThirdVerse } a,4. e'8|}
      \alternative {{ s2 e }{ s4 e8 s e s s4 }}}
   %% tenor temporarily moved to bass clef
   \new Voice { \voiceTwo \stemUp { c'2. a4 | b2. e8 d | c2~ \tuplet 3/2 4 { c8 a b c b a } | d2 b | }
@@ -180,20 +192,14 @@ bassWords =  \lyricmode {
  В_не про глаз ной ле дя ной ти ши не __
  
  нас.
- "" "" "" "" "" "" "" "" ""
- "" "" "" "" "" ""
+ "" "" "" "" "" "" "" "" "" "" ""
+ "" "" "" ""
  На се ми __ про ду_"" вных скво зня ках __
  По бо ло там, по пу сты ням, сте пям __
  По су гро бам, по гря зи, по зе мле __
  \chorusWords
 }
 
-bassWordsThirdVerse = \lyricmode {
- Ис ку ше ни ям и пра здни кам -- нет
- Пре сту пле_ни ям и пра здни кам -- нет __ 
- Иск лю че_ни ям и пра здни кам -- нет, __ нет, нет.
- 
-}
 
 \score {
   \layout { }
