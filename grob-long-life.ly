@@ -28,21 +28,24 @@ bassWordsThirdVerse = \markup \italic \column {
 sopMusic = \relative {
   \partial 4 d'8 e | f f f f e e e e~ | e r8 r2 d8 e | f4 f8 f e e e e~ | e r8 r4 r4 d8 e |
   f f f f e e e e~ | e1 | 
+  \mark \markup  { \box "1 куплет"}
   \sopPreChorusMusic
   \repeat volta 2 { \sopMusicChorus }
   \alternative
   { {
-    b'2. r4 | a2~\(^\markup {\box "2 куплет"}  a | gis1\) | a2~\( a |
-    gis1\) | a2~ a | gis2. e8 d16 c~ | c4  a8. a16 a'8 g f g~ | g2 r4 b,8 b16 c |
-    c4 a8 a c' b a g~ | g2 r4 e8 d | e e e e e' d c g~ | g2( a) |
+    b'2. a4\rest | \mark \markup { \box "2 куплет"} a2~\( a | gis1\) | a2~\( a |
+    gis1\) | a2~ a | gis2. e8 d16 c~ | c4  a8. a16 a'8 g f g~ | g2 a4\rest b,8 b16 c |
+    c4 a8 a c' b a g~ | g2 a4\rest e8 d | e e e e e' d c g~ | g2( a) |
   }
   { b1 }
   }
-  a2 \tuplet 3/2 4 { a8 a b c b a } | b4 gis e2 | f a4 f | e1 |
+  a2~ \tuplet 3/2 4 { a8 a b c b a } | b4 gis e2 | f a4 f | e1 |
   \repeat volta 3 { f2^\markup { \bassWordsThirdVerse } e4. e8 | }
   \alternative {{r2 e}{r4 e8 r e r r4}}
+  \mark \markup  { \box "3 куплет"}
   \sopPreChorusMusic
   \repeat volta 2 {
+    \mark \markup { \box "Кода"}
     g8 g g g fis fis fis g~ | g2~ g8 c c c | b b b b a a a g~ |
     g2~ g8 c c c | d b b b a a a b~ | b2 a8 a a a | g2 fis8 g a fis |
     g8.( a16 b4) a8 a a a | }
@@ -67,14 +70,14 @@ altoMusic = \relative {
   \repeat volta 2 {  \altoMusicChorus }
   \alternative
   { {                  
-    g'2. r4 | f2\( e | e1\) | f2\( e |
-    e1 | f2 e | e2. e8 d16 c~ | c4  a8. a16 f'8 e d e | e2 r4 b8 b16 c |
-    a4 a8 a a' g f e~ | e2 r4  e8 d | e e e e <c' a> <b g> <a f> e~ | e2 fis |
+    g'2. s4 | f2\( e | e1\) | f2\( e |
+    e1 | f2 e | e2. e8 d16 c~ | c4  a8. a16 f'8 e d e | e2 s4 b8 b16 c |
+    a4 a8 a a' g f e~ | e2 s4  e8 d | e e e e <c' a> <b g> <a f> e~ | e2 fis |
   }                
   { g1 }
   }
   << { \voiceOne s1 s1 s1 s1 } \new Voice { \voiceTwo f2~ \tuplet 3/2 4 { f8 f g a g f } | e1 | c | e | } >> \oneVoice
-  \stemDown { \repeat volta 3 { c2 c4. b8 | }
+   { \repeat volta 3 { c2 c4. b8 | }
   \alternative {{r2 b}{ r4 e8 r e r r4}}
   }
   \altoPreChorusMusic
@@ -89,7 +92,7 @@ altoMusic = \relative {
 tenorMusicChorus = \relative {
   b8 b b b b b b b~ | b2~ b8 e e e | d b b b b b b b~ |
   b4 r r8 e e e | g d d d d d d e~ | e2 d8 d d d | c2 b8 b b b |
-  << { \voiceOne s2 } \new Voice { \voiceTwo b2~ } >> \oneVoice d8 d d d | c2 dis8 dis dis dis |
+  << { \voiceOne s2 } \new Voice { \voiceTwo b2~ } >> d8 d d d | c2 dis8 dis dis dis |
 }
 
 tenorPreChorusMusic = \relative {
@@ -104,9 +107,9 @@ tenorMusic = \relative {
   \repeat volta 2 { \tenorMusicChorus }
   \alternative
   { {
-    e'2. r4 | c2\( c | b1\) | c2\( c |
-    b1 | c2~ c | b2. c8 b16 a~ | a4 a8. a16 c8 c c c | c2 r4 g8 g16 a |
-    c4 a8 a c c c c~ | c2 r4 b8 b | c c c c c c c c~ | c2( d) |
+    e'2. s4 | c2\( c | b1\) | c2\( c |
+    b1 | c2~ c | b2. c8 b16 a~ | a4 a8. a16 c8 c c c | c2 s4 g8 g16 a |
+    c4 a8 a c c c c~ | c2 s4 b8 b | c c c c c c c c~ | c2( d) |
   }
   { e1 }
   }
@@ -148,11 +151,11 @@ bassMusic = \relative {
   e1
   }
   }
-  << { \voiceOne \stemDown { f1 | e | f2~ \tuplet 3/2 4 { f8 f g a g f } | e1 | }
+  << { \voiceTwo  { f1 | e | f2~ \tuplet 3/2 4 { f8 f g a g f } | e1 | }
      \repeat volta 3 {f2 a,4. e'8|}
      \alternative {{ s2 e }{ s4 e8 s e s c8 b | }}}
   %% tenor temporarily moved to bass clef
-  \new Voice { \voiceTwo \stemUp { c'2. a4 | b2. e8 d | c2~ \tuplet 3/2 4 { c8 a b c b a } | d2 b | }
+  \new Voice { \voiceOne  { c'2. a4 | b2. e8 d | c2~ \tuplet 3/2 4 { c8 a b c b a } | d2 b | }
     \repeat volta 3 { a2 a4. b8|}
   \alternative {{d,2\rest b' }{d,4\rest b'8 d,\rest b' d,\rest b'4\rest}}
   }>> \oneVoice
@@ -220,21 +223,16 @@ everybodyWords = \lyricmode {
  В_не про глаз ной ле дя ной ти ши не __
  нас.
 "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
-"" "" "" "" "" "" "" "" "" "" ""
+"" "" "" "" "" "" "" "" "" ""
 \chorusWords каж до му из нас.
 }
 
 \score {
   \layout {
-    \context {
-    \Score
-%    \override StaffGrouper.staff-staff-spacing.padding = #2
-%    \override StaffGrouper.staff-staff-spacing.basic-distance = #-10
-  }
   }
   \new ChoirStaff
   <<
-    \new Staff = "women" \with {midiInstrument = #"clarinet"}
+    \new Staff = "women"
     <<
       \new Voice = "sopranos" {
       <<
@@ -248,14 +246,15 @@ everybodyWords = \lyricmode {
     >>
     \new Lyrics = "women-only" \with { alignAboveContext = "women" }
     \new Lyrics = "everybody" \with { alignBelowContext = "women" }
-    \new Staff = "men" \with {midiInstrument = #"cello"}  <<
+    \new Staff = "men"
+    <<
       \clef bass
       \new Voice = "basses" {
         <<
           \global \bassMusic
         >>
       }
-  >>
+    >>
     \new Lyrics = "basses"
     \context Lyrics = "women-only" \lyricsto "sopranos" \womenWords
     \context Lyrics = "everybody" \lyricsto "sopranos" \everybodyWords
