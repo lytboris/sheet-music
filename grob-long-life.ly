@@ -12,12 +12,18 @@ global = {
 sopMusicChorus = \relative {
   g'8^\markup {\box "Привев"} g g g fis fis fis g~ | g2~ g8 c c c | b b b b a a a g~ |
   g4 r r8 c c c | d b b b a a a b~ | b2 a8 a a a | g2 fis8 g a fis |
-  g8. a16 b4 a8 a a a | g2 b8 b b b |
+  g8.( a16 b4) a8 a a a | g2 b8 b b b |
 }
 
 sopPreChorusMusic = \relative {
 a'2~\( a | g~ g\) | a~\( a | g~ g\) |
   a~\( a | g( fis)\) | }
+
+bassWordsThirdVerse = \markup \italic \column {
+ "Искушениям и праздни кам - нет"
+ "Преступлениям и праздникам - нет"
+ "Исключениям и праздникам - нет, нет, нет."
+}
 
 sopMusic = \relative {
   \partial 4 d'8 e | f f f f e e e e~ | e r8 r2 d8 e | f4 f8 f e e e e~ | e r8 r4 r4 d8 e |
@@ -27,26 +33,26 @@ sopMusic = \relative {
   \alternative
   { {
     b'2. r4 | a2~\(^\markup {\box "2 куплет"}  a | gis1\) | a2~\( a |
-    gis1\) | a2~ a | gis2. e8 d16 c~ | c4  a8. a16 a'8 g f g~ | g2 r4 b,8 b16 c~ |
+    gis1\) | a2~ a | gis2. e8 d16 c~ | c4  a8. a16 a'8 g f g~ | g2 r4 b,8 b16 c |
     c4 a8 a c' b a g~ | g2 r4 e8 d | e e e e e' d c g~ | g2( a) |
   }
   { b1 }
   }
   a2 \tuplet 3/2 4 { a8 a b c b a } | b4 gis e2 | f a4 f | e1 |
-  \repeat volta 3 { f2 e4. e8 | }
+  \repeat volta 3 { f2^\markup { \bassWordsThirdVerse } e4. e8 | }
   \alternative {{r2 e}{r4 e8 r e r r4}}
-  r1 \sopPreChorusMusic
+  \sopPreChorusMusic
   \repeat volta 2 {
     g8 g g g fis fis fis g~ | g2~ g8 c c c | b b b b a a a g~ |
     g2~ g8 c c c | d b b b a a a b~ | b2 a8 a a a | g2 fis8 g a fis |
-    g8. a16 b4 a8 a a a | }
+    g8.( a16 b4) a8 a a a | }
   \alternative {{g2 b8 b b b}{g2 b8 b b b | b1}}
 }
 
 altoMusicChorus = \relative {
   d'8 d d d dis dis dis e~ | e2~ e8 g g g | g d d d dis dis dis e~ |
   e4 r r8 g g g | b g g g fis fis fis g~ | g2 fis8 fis fis fis | e2 dis8 e fis dis |
-  e8. fis16 g4 fis8 fis fis fis | e2 fis8 fis fis fis |  
+  e8.( fis16 g4) fis8 fis fis fis | e2 fis8 fis fis fis |  
 }
 
 altoPreChorusMusic = \relative {
@@ -71,11 +77,11 @@ altoMusic = \relative {
   \stemDown { \repeat volta 3 { c2 c4. b8 | }
   \alternative {{r2 b}{ r4 e8 r e r r4}}
   }
-  r1 \altoPreChorusMusic
+  \altoPreChorusMusic
   \repeat volta 2 {
     d8 d d d  b b b b~ | b2( c8) e e e | d d d d b b b b~ |
     b2( c8) e e e | d d d d fis fis fis g~ | g2 fis8 fis fis fis | e2 dis8 e fis dis |
-    e8. fis16 g4 fis8 fis fis fis | }
+    e8.( fis16 g4) fis8 fis fis fis | }
   \alternative {{e2 fis8 fis fis fis} {e2 fis8 fis fis fis | gis1}}
 
 }
@@ -108,7 +114,7 @@ tenorMusic = \relative {
   s1 s1 s1 s1 |
   \repeat volta 3 { s1 }
   \alternative {{s1}{s1}}
-  s1 \tenorPreChorusMusic 
+  \tenorPreChorusMusic 
   \new Staff {
   \once \omit Staff.TimeSignature
   \repeat volta 2 {
@@ -125,11 +131,7 @@ baseMusicChorus = \relative {
   e2 d8 d d d | c2 b8 b b b | 
 }
 
-bassWordsThirdVerse = \markup \italic \column {
- "Искушениям и праздни кам - нет"
- "Преступлениям и праздникам - нет"
- "Исключениям и праздникам - нет, нет, нет."
-}
+
 
 bassMusic = \relative {
   \partial 4 d4\rest | R1*4 |
@@ -147,14 +149,14 @@ bassMusic = \relative {
   }
   }
   << { \voiceOne \stemDown { f1 | e | f2~ \tuplet 3/2 4 { f8 f g a g f } | e1 | }
-     \repeat volta 3 {f2_\markup { \bassWordsThirdVerse } a,4. e'8|}
-     \alternative {{ s2 e }{ s4 e8 s e s s4 }}}
+     \repeat volta 3 {f2 a,4. e'8|}
+     \alternative {{ s2 e }{ s4 e8 s e s c8 b | }}}
   %% tenor temporarily moved to bass clef
   \new Voice { \voiceTwo \stemUp { c'2. a4 | b2. e8 d | c2~ \tuplet 3/2 4 { c8 a b c b a } | d2 b | }
     \repeat volta 3 { a2 a4. b8|}
-  \alternative {{d,2\rest b' }{d,4\rest b'8 d,\rest b' d,\rest d4\rest}}
+  \alternative {{d,2\rest b' }{d,4\rest b'8 d,\rest b' d,\rest b'4\rest}}
   }>> \oneVoice
-  r2 r4 c8 b| a a a a16 a'~ a8 g f e~ | e2. a,8 b | c a  a a16 a'~ a8 g f e~ | e2. e8 d |
+  a,8 a a a16 a'~ a8 g f e~ | e2. a,8 b | c a  a a16 a'~ a8 g f e~ | e2. e8 d |
   e e e e f f f g~| g2( a) | 
   % Chorus
   \repeat volta 2 { <<\voiceOne {
@@ -170,7 +172,8 @@ bassMusic = \relative {
 }
 
 
-altoWords = \lyricmode {
+womenWords = \lyricmode {
+  \set stanza = "Хор: "
   По тря се ни ям и пра здни кам -- нет! Го ри зон там и праз дни кам -- нет! Вдох но
   ве ни ям и праз дни кам нет!
 }
@@ -187,31 +190,52 @@ bassFirstVerseWords =  \lyricmode {
 }
 
 bassWords =  \lyricmode {
+ \set stanza = "Соло: "
  Без рыбь е в_зо ло той по лы нье, __ ве зде сущ ность мы ши ной во зни, __ злы е
  cу мер ки бес смерт но го дня __ 
- \chorusWords
+ "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ "" "" "" "" ""
  Бес по щад ны е глу би ны мор щин.
- Мар си ан ски е впа ди ны глаз __
+ Ма ри ан ски е впа ди ны глаз __
  Мар си ан ски е хро ни ки нас, нас, нас.
- Пос ре ди __ о ди на ко вых стен __
- В гро бо вых от да лён ных до мах __
- В_не про глаз ной ле дя ной ти ши не __
-
- нас.
-
- "" "" "" "" "" "" "" "" "" "" ""
- "" "" "" ""
+ "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
  На се ми __ про ду_"" вных скво зня ках __
  По бо ло там, по пу сты ням, сте пям __
  По су гро бам, по гря зи, по зе мле __
- \chorusWords
 }
 
+everybodyWords = \lyricmode {
+"" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+"" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+"" "" "" "" ""
+\set stanza = "Все: "
+\chorusWords
+ "" "" "" "" "" ""
+ Пос ре ди __ о ди на ко вых стен __
+ В гро бо вых от да лён ных до мах __
+ В_не про глаз ной ле дя ной ти ши не __
+ нас.
+"" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+"" "" "" "" "" "" "" "" "" "" ""
+\chorusWords каж до му из нас.
+}
 
 \score {
-  \layout { }
-  \new ChoirStaff <<
-    \new Staff = "women" \with {midiInstrument = #"clarinet"} <<
+  \layout {
+    \context {
+    \Score
+%    \override StaffGrouper.staff-staff-spacing.padding = #2
+%    \override StaffGrouper.staff-staff-spacing.basic-distance = #-10
+  }
+  }
+  \new ChoirStaff
+  <<
+    \new Staff = "women" \with {midiInstrument = #"clarinet"}
+    <<
       \new Voice = "sopranos" {
       <<
         \global
@@ -222,7 +246,8 @@ bassWords =  \lyricmode {
       \bar "|."
       }
     >>
-    \new Lyrics = "altos" \with { alignAboveContext = "women" }
+    \new Lyrics = "women-only" \with { alignAboveContext = "women" }
+    \new Lyrics = "everybody" \with { alignBelowContext = "women" }
     \new Staff = "men" \with {midiInstrument = #"cello"}  <<
       \clef bass
       \new Voice = "basses" {
@@ -230,9 +255,10 @@ bassWords =  \lyricmode {
           \global \bassMusic
         >>
       }
-    >>
-    \context Lyrics = "" \lyricsto "sopranos" \altoWords
+  >>
     \new Lyrics = "basses"
+    \context Lyrics = "women-only" \lyricsto "sopranos" \womenWords
+    \context Lyrics = "everybody" \lyricsto "sopranos" \everybodyWords
     \context Lyrics = "basses" \lyricsto "basses" \bassWords
   >>
 }
