@@ -169,7 +169,7 @@ bassMusic = \relative {
       g2 b, | e c8 c c c | g'2 b, | e~ e8 c c c | g'2 b, | e d | c b | e d8 d d d 
     } >> \oneVoice }
   \alternative {
-    { <<{c2 b8 b b b} {g'2 s2}>> | }
+    { <<{\stemDown {c2 b8 b b b}} {g'2 s2}>> | }
     { <<{g2 b,8 b b b | e1} {c2 b'8 b b b | b1}>> }
   }
 }
