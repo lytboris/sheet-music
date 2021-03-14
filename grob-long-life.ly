@@ -35,6 +35,11 @@ sopMusic = \relative {
   \repeat volta 3 { f2 e4. e8 | }
   \alternative {{r2 e}{r4 e8 r e r r4}}
   r1 \sopPreChorusMusic
+  \repeat volta 2 {
+  g8 g g g fis fis fis g~ | g2~ g8 c c c | b b b b a a a g~ |
+  g2~ g8 c c c | d b b b a a a b~ | b2 a8 a a a | g2 fis8 g a fis |
+  g8. a16 b4 a8 a a a | }
+  \alternative {{g2 b8 b b b}{g2 b8 b b b | b1}}
 }
 
 altoMusicChorus = \relative {
@@ -67,6 +72,11 @@ altoMusic = \relative {
   \alternative {{r2 b}{ r4 e8 r e r r4}}
   }
   r1 \altoPreChorusMusic
+  \repeat volta 2 {
+  d8 d d d  b b b b~ | b2( c8) e e e | d d d d b b b b~ |
+  b2( c8) e e e | d d d d fis fis fis g~ | g2 fis8 fis fis fis | e2 dis8 e fis dis |
+  e8. fis16 g4 fis8 fis fis fis | }
+  \alternative {{e2 fis8 fis fis fis} {e2 fis8 fis fis fis | gis1}}
 
 }
 
@@ -128,9 +138,17 @@ bassMusic = \relative {
     \repeat volta 3 { a2 a4. b8|}
   \alternative {{r2 b }{r4 b8 r b r r4}}
   }>> \oneVoice
-  r2 r4 c,8 b| a a a a16 a'~ a8 g f e~ | e2. a,8 b | c4 a8 a16 a'~ a8 g f e~ | e2. e8 d |
+  r2 r4 c,8 b| a a a a16 a'~ a8 g f e~ | e2. a,8 b | c a  a a16 a'~ a8 g f e~ | e2. e8 d |
   e e e e f f f g~| g2( a) | 
-
+  % Chorus
+  \repeat volta 2 { <<\voiceOne {
+  g8 g g g fis fis fis g~ | g2~ g8 c c c | b b b b  a a a g~ |
+  g2~ g8 c c c| d b16( a) g8 b a a a b~ | b2 a8 a a a | g2 fis8 g a fis | g8.( a16 b4) a8 a a a | }
+    \new Voice {\voiceTwo
+      g2 b, | e c8 c c c | g'2 b, | e~ e8 c c c | g'2 b, | e d | c b | e d8 d d d 
+    } >> \oneVoice }
+  \alternative {{ <<{ \voiceOne g2 g2\rest} \new Voice {\voiceTwo c,2 b8 b b b} \oneVoice>> | }{ <<{\voiceOne s2 } \new Voice { \voiceTwo <<{g'2}{c,2}>> } >> \oneVoice
+  << { b8 b b b | e1} { b'8 b b b | b1} >> }}
 }
 
 
@@ -164,9 +182,10 @@ bassWords =  \lyricmode {
  нас.
  "" "" "" "" "" "" "" "" ""
  "" "" "" "" "" ""
- На се ми __ про ду вных скво зня ках __
+ На се ми __ про ду_"" вных скво зня ках __
  По бо ло там, по пу сты ням, сте пям __
  По су гро бам, по гря зи, по зе мле __
+ \chorusWords
 }
 
 bassWordsThirdVerse = \lyricmode {
@@ -190,6 +209,7 @@ bassWordsThirdVerse = \lyricmode {
         \altoMusic
         \tenorMusic
       >>
+      \bar "|."
       }
     >>
     \new Lyrics = "altos" \with { alignAboveContext = "women" }
@@ -204,6 +224,5 @@ bassWordsThirdVerse = \lyricmode {
     \context Lyrics = "" \lyricsto "sopranos" \altoWords
     \new Lyrics = "basses"
     \context Lyrics = "basses" \lyricsto "basses" \bassWords
-
   >>
 }
