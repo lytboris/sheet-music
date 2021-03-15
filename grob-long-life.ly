@@ -20,9 +20,9 @@ a'2~\( a | g~ g\) | a~\( a | g~ g\) |
   a~\( a | g( fis)\) | }
 
 bassWordsThirdVerse = \markup \italic \column {
- "Искушениям и праздни кам - нет"
+ "Искушениям и праздни кам -   нет"
  "Преступлениям и праздникам - нет"
- "Исключениям и праздникам - нет, нет, нет."
+ "Исключениям и праздникам -   нет!    Нет! Нет!"
 }
 
 sopMusic = \relative {
@@ -40,7 +40,7 @@ sopMusic = \relative {
   { b1 }
   }
   a2~ \tuplet 3/2 4 { a8 a b c b a } | b4 gis e2 | f a4 f | e1 |
-  \repeat volta 3 { f2^\markup { \bassWordsThirdVerse } e4. e8 | }
+  \repeat volta 3 { f2   \mark \markup { \bassWordsThirdVerse } e4. e8 | }
   \alternative {{r2 e}{r4 e8 r e r r4}}
   \mark \markup  { \box "3 куплет"}
   \sopPreChorusMusic
