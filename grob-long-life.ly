@@ -120,7 +120,7 @@ tenorMusic = \relative {
   \alternative {{s1}{s1}}
   \tenorPreChorusMusic 
   <<
-  \new Staff {
+  \new Staff \with {midiInstrument = #"clarinet"} {
   \once \omit Staff.TimeSignature
   \repeat volta 2 {
   \repeat percent 2 { g8 d b g' fis dis b fis' | e b e d c e g e |}
@@ -208,7 +208,7 @@ bassWords =  \lyricmode {
  Мар си ан ски е хро ни ки нас, нас, нас.
  "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
  "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
- "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ "" "" "" "" "" "" "" "" "" "" "" "" "" ""
  На се ми __ про ду_"" вных скво зня ках __
  По бо ло там, по пу сты ням, сте пям __
  По су гро бам, по гря зи, по зе мле __
