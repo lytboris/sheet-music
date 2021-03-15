@@ -34,7 +34,7 @@ sopMusic = \relative {
   \alternative
   { {
     b'2. a4\rest | \mark \markup { \box "2 куплет"} a2~\( a | gis1\) | a2~\( a |
-    gis1\) | a2~ a | gis2. e8 d16 c~ | c4  a8. a16 a'8 g f g~ | g2 a4\rest b,8 b16 c |
+    gis1\) | a2~ a | gis2. e8 d16 c~ | c4  a8. a16 a'8 g f g~ | g2 a4\rest b,8 b16 c~ |
     c4 a8 a c' b a g~ | g2 a4\rest e8 d | e e e e e' d c g~ | g2( a) |
   }
   { b1 }
@@ -44,6 +44,7 @@ sopMusic = \relative {
   \alternative {{r2 e}{r4 e8 r e r r4}}
   \mark \markup  { \box "3 куплет"}
   \sopPreChorusMusic
+  \pageBreak
   \repeat volta 2 {
     \mark \markup { \box "Кода"}
     g8 g g g fis fis fis g~ | g2~ g8 c c c | b b b b a a a g~ |
@@ -71,7 +72,7 @@ altoMusic = \relative {
   \alternative
   { {                  
     g'2. s4 | f2\( e | e1\) | f2\( e |
-    e1 | f2 e | e2. e8 d16 c~ | c4  a8. a16 f'8 e d e | e2 s4 b8 b16 c |
+    e1 | f2 e | e2. e8 d16 c~ | c4  a8. a16 f'8 e d e | e2 s4 b8 b16 c~ |
     a4 a8 a a' g f e~ | e2 s4  e8 d | e e e e <c' a> <b g> <a f> e~ | e2 fis |
   }                
   { g1 }
@@ -108,7 +109,7 @@ tenorMusic = \relative {
   \alternative
   { {
     e'2. s4 | c2\( c | b1\) | c2\( c |
-    b1 | c2~ c | b2. c8 b16 a~ | a4 a8. a16 c8 c c c | c2 s4 g8 g16 a |
+    b1 | c2~ c | b2. c8 b16 a~ | a4 a8. a16 c8 c c c | c2 s4 g8 g16 a~ |
     c4 a8 a c c c c~ | c2 s4 b8 b | c c c c c c c c~ | c2( d) |
   }
   { e1 }
@@ -146,7 +147,7 @@ bassMusic = \relative {
   \alternative
   { {
   e2. d8 e | f f f f e e e4 | e2. d8 e | f4 f8 f e e e e~ |
-  e2. d8 e | f4 f8 f e e e e~ | e4 e e e8 d16 c~ | c4  a8. a16 a'8 g f g~( | g4. f8 e4) e8 e16 e |
+  e2. d8 e | f4 f8 f e e e e~ | e4 e e e8 d16 c~ | c4  a8. a16 a'8 g f g~( | g4. f8 e4) e8 e16 e~ |
   e4 e8 e f f f g~ | g2 r4 g8 g | a a a g f f f g~ | g2( d) |
   }
   {
@@ -221,7 +222,7 @@ everybodyWords = \lyricmode {
 \chorusWords
  "" "" "" "" "" ""
  Пос ре ди __ о ди на ко вых стен __
- В гро бо вых от да лён ных до мах __
+ В_гро бо вых __ от да лён ных до мах __
  В_не про глаз ной ле дя ной ти ши не __
  нас.
 "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
