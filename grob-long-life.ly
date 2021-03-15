@@ -119,15 +119,6 @@ tenorMusic = \relative {
   \alternative {{s1}{s1}}
   \tenorPreChorusMusic 
   <<
-    { 
-      % FIXME make small notes
-      \repeat volta 2 { b8 b b b b b b b~ | b2~ b8 e e e | g b, b b dis dis dis e~ |
-  e2~ e8 g g g | g b, b b d d d e~ | e2 d8 d d d | c2 b8 b b b |
-  << { \voiceOne s2 } \new Voice { \voiceTwo b2~ } >> d8 d d d |
-  }
-  \alternative {{c2 dis8 dis dis dis }{s1 s1}}
-  }
-  \revert Voice.NoteHead.font-size
   \new Staff {
   \once \omit Staff.TimeSignature
   \repeat volta 2 {
