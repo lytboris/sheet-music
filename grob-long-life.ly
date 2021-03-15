@@ -82,7 +82,7 @@ altoMusic = \relative {
   }
   \altoPreChorusMusic
   \repeat volta 2 {
-    d8 d d d  b b b b~ | b2( c8) e e e | d d d d b b b b~ |
+    d8 d d d  dis dis dis e~ | e2( e8) g g g | d d d d b b b b~ |
     b2( c8) e e e | d d d d fis fis fis g~ | g2 fis8 fis fis fis | e2 dis8 e fis dis |
     e8.( fis16 g4) fis8 fis fis fis | }
   \alternative {{e2 fis8 fis fis fis} {e2 fis8 fis fis fis | gis1}}
@@ -118,6 +118,16 @@ tenorMusic = \relative {
   \repeat volta 3 { s1 }
   \alternative {{s1}{s1}}
   \tenorPreChorusMusic 
+  <<
+    { 
+      % FIXME make small notes
+      \repeat volta 2 { b8 b b b b b b b~ | b2~ b8 e e e | g b, b b dis dis dis e~ |
+  e2~ e8 g g g | g b, b b d d d e~ | e2 d8 d d d | c2 b8 b b b |
+  << { \voiceOne s2 } \new Voice { \voiceTwo b2~ } >> d8 d d d |
+  }
+  \alternative {{c2 dis8 dis dis dis }{s1 s1}}
+  }
+  \revert Voice.NoteHead.font-size
   \new Staff {
   \once \omit Staff.TimeSignature
   \repeat volta 2 {
@@ -126,6 +136,7 @@ tenorMusic = \relative {
   }
   \alternative{{ c2 dis8 dis dis dis} { c2 dis8 dis dis dis | e1 }}
   }
+  >>
 }
 
 baseMusicChorus = \relative {
