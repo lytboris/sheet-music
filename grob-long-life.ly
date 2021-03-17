@@ -60,7 +60,7 @@ altoMusicChorus = \relative {
 }
 
 altoPreChorusMusic = \relative {
-e'2~\( e | e( d)\) | e~\( f | d~ d\) |
+e'2~\( e | e( d)\) | e~\( f | e~ e\) |
   e\( f | e( fis)\) | 
 }
 
@@ -146,7 +146,7 @@ bassMusic = \relative {
   \repeat volta 2 { \baseMusicChorus }
   \alternative
   { {
-  e2. d8 e | f f f f e e e4 | e2. d8 e | f4 f8 f e e e e~ |
+  e2. d8 e | f f f f e e e8 e8~ | e2. d8 e | f4 f8 f e e e e~ |
   e2. d8 e | f4 f8 f e e e e~ | e4 e e e8 d16 c~ | c4  a8. a16 a'8 g f g~( | g4. f8 e4) e8 e16 e~ |
   e4 e8 e f f f g~ | g2 r4 g8 g | a a a g f f f g~ | g2( d) |
   }
@@ -180,8 +180,6 @@ bassMusic = \relative {
 
 womenWords = \lyricmode {
   \set stanza = "Хор: "
-  По тря се ни ям и пра здни кам -- нет! Го ри зон там и праз дни кам -- нет! Вдох но
-  ве ни ям и праз дни кам нет!
 }
 
 chorusWords = \lyricmode {
@@ -215,10 +213,11 @@ bassWords =  \lyricmode {
 }
 
 everybodyWords = \lyricmode {
-"" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
-"" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
-"" "" "" "" ""
 \set stanza = "Все: "
+  По тря се ни ям и пра здни кам -- нет!
+  Го ри зон там и праз дни кам -- нет!
+  Вдох но ве ни ям и праз дни кам нет!
+"" "" "" "" "" ""
 \chorusWords
  "" "" "" "" "" ""
  Пос ре ди __ о ди на ко вых стен __
