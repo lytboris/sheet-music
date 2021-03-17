@@ -177,11 +177,6 @@ bassMusic = \relative {
   }
 }
 
-
-womenWords = \lyricmode {
-  \set stanza = "Хор: "
-}
-
 chorusWords = \lyricmode {
  { Дол гая я счаст ли ва я жизнь, __ та ка я дол га я счаст ли ва я жизнь,
  от ны не дол га я счаст ли ва я жизнь, каж до му из нас, каж до му из
@@ -246,7 +241,6 @@ everybodyWords = \lyricmode {
       \bar "|."
       }
     >>
-    \new Lyrics = "women-only" \with { alignAboveContext = "women" }
     \new Lyrics = "everybody" \with { alignBelowContext = "women" }
     \new Staff = "men"
     <<
@@ -258,7 +252,6 @@ everybodyWords = \lyricmode {
       }
     >>
     \new Lyrics = "basses"
-    \context Lyrics = "women-only" \lyricsto "sopranos" \womenWords
     \context Lyrics = "everybody" \lyricsto "sopranos" \everybodyWords
     \context Lyrics = "basses" \lyricsto "basses" \bassWords
   >>
