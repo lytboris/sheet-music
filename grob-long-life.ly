@@ -140,8 +140,8 @@ baseMusicChorus = \relative {
 
 
 bassMusic = \relative {
-  \partial 4 d4\rest | R1*4 |
-  | R1 | r2 r4 r8 c8 | a a a a16 a'~ a8 g f e~ | e2. a,8 b | c4 a8 a16 a'~ a8 g f e~ | e2. a,8 b |
+  \partial 4 d8 e | f f f f e e e e~ | e r8 r2 d8 e | f4 f8 f e e e e~ | e r8 r4 r4 d8 e |
+  f f f f e e e e~ | e2. r8 c8 | a a a a16 a'~ a8 g f e~ | e2. a,8 b | c4 a8 a16 a'~ a8 g f e~ | e2. a,8 b |
   c b c c a' g f g~ | g2( a) | 
   \repeat volta 2 { \baseMusicChorus }
   \alternative
@@ -190,6 +190,8 @@ bassFirstVerseWords =  \lyricmode {
 
 bassWords =  \lyricmode {
  \set stanza = "Соло: "
+ "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
+ "" "" "" "" "" "" "" "" "" "" "" "" "" ""
  Без рыбь е в_зо ло той по лы нье, __ ве зде сущ ность мы ши ной во зни, __ злы е
  cу мер ки бес смерт но го дня __ 
  "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
