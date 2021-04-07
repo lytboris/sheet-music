@@ -189,9 +189,9 @@ bassFirstVerseWords =  \lyricmode {
 }
 
 bassWords =  \lyricmode {
+ \set stanza = "Соло: "
  "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
  "" "" "" "" "" "" "" "" "" "" "" "" "" ""
- \set stanza = "Соло: "
  Без рыбь е в_зо ло той по лы нье, __ ве зде сущ ность мы ши ной во зни, __ злы е
  cу мер ки бес смерт но го дня __ 
  "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
@@ -262,14 +262,26 @@ everybodyWords = \lyricmode {
 \score {
   \midi { \tempo 4= 98 }
   \unfoldRepeats
-  \new ChoirStaff <<
-    \new Staff = "women" \with {midiInstrument = #"clarinet"} <<
+  \new ChoirStaff
+  <<
+   \new Staff = "sopranos" \with {midiInstrument = #"clarinet"} <<
       \new Voice = "sopranos" {
       <<
-        \global
-        \sopMusic
-        \altoMusic
-        \tenorMusic
+        \global \sopMusic
+      >>
+      }
+    >>
+    \new Staff = "altos" \with {midiInstrument = #"clarinet"} <<
+      \new Voice = "altos" {
+      <<
+        \global \altoMusic
+      >>
+      }
+    >>
+    \new Staff = "tenors" \with {midiInstrument = #"clarinet"} <<
+      \new Voice = "tenors" {
+      <<
+        \global \tenorMusic
       >>
       }
     >>
