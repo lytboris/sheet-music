@@ -10,7 +10,7 @@ global = {
 }
 
 sopMusicChorus = \relative {
-  g'8^\markup {\box "Привев"} g g g fis fis fis g~ | g2~ g8 c c c | b b b b a a a g~ |
+  g'8^\markup {\box "Припев"} g g g fis fis fis g~ | g2~ g8 c c c | b b b b a a a g~ |
   g4 r r8 c c c | d b b b a a a b~ | b2 a8 a a a | g2 fis8 g a fis |
   g8.( a16 b4) a8 a a a | g2 b8 b b b |
 }
