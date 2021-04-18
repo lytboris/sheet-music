@@ -13,7 +13,7 @@ sopranonotes = \relative c'' {
   \partial 2 b8 b4 fis8 | \repeat volta 2 { g4 r8 e a4 a8 e | fis4 fis \breathe d d8 d | e4 d8 e fis fis b b |
   ais2 \breathe b8 b4 fis8 | g4 r8 b8 cis4 cis8 a | fis4 fis \breathe d d | e d8 e fis4 b8 ais | b2 \breathe b8 b4 fis8| }
 }
-sopranowords = \lyricmode { Je sus your | light is shin ing with | in us. Let not my | doubts adn my dark ness speak to |
+sopranowords = \lyricmode { Je sus your | light is shin ing with | in us. Let not my | doubts and my dark ness speak to |
 me. Je sus you | light is shin ing with | in us. Let my | heart al ways wel come your | love. Je sus, your }
 
 altonotes = \relative c' {
