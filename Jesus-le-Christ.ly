@@ -15,7 +15,7 @@ sopranonotes = \relative c'' {
   \alternative {{ b2 \breathe b8 b4 fis8| } { b2\fermata } }
 }
 sopranowords = \lyricmode { Je sus your | light is shin ing with | in us. Let not my | doubts and my dark ness speak to |
-me. Je sus you | light is shin ing with | in us. Let my | heart al ways wel come your | love. Je sus, your }
+me. Je sus you | light is shin ing with | in us. Let my | heart al ways wel come your | love. Je sus, your | love.}
 
 altonotes = \relative c' {
 d8 d4 d8 | \repeat volta 2 { e4 r8 d8 cis4 b8 cis | d4 d \breathe d d8 d | cis4 b8 cis d d e e |
