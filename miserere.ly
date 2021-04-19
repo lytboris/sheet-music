@@ -104,7 +104,7 @@ date = #(strftime "%d-%m-%Y %H:%M" (localtime (current-time)))
       >>
       }
     >>
-    \new Staff = "tenors" \with {midiInstrument = #"reed organ"} <<
+    \new Staff = "tenors" \with {midiInstrument = #"drawbar organ"} <<
       \new Voice = "tenors" {
       <<
         \global \tenornotes
