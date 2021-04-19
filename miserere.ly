@@ -42,6 +42,15 @@ altowords = \lyricmode { Mi se re _ _ re _ _ me _ _ i, _ _ De _ _ us, \commonwor
 tenorwords = \lyricmode {Mi se re re, Mi se re re me i, De _ us, \commonwords tu am}
 basswords = \lyricmode {Mi se re _ _ _ _ _ re, Mi se re re me i, De _ _ us, \commonwords tu am}
 
+date = #(strftime "%d-%m-%Y %H:%M" (localtime (current-time)))
+  \paper {
+    oddFooterMarkup = \markup {
+       Compiled \date
+    }
+    evenFooterMarkup = \oddFooterMarkup
+  }
+
+
 \score {
   \new ChoirStaff <<
     \new Staff \with { instrumentName = "Soprano" } <<
@@ -112,3 +121,4 @@ basswords = \lyricmode {Mi se re _ _ _ _ _ re, Mi se re re me i, De _ _ us, \com
     >>
   >>
 }
+
