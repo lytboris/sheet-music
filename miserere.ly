@@ -15,7 +15,7 @@ global = {
 sopranonotes = \relative c' {
   R1*4 d2\p d2 bes'1 
   a1 g2. g4 f1  e1 a2\< a4 a4  bes2 bes2\!\>
-  r4\! a4\< a4 a4 gis4. gis8\!\> gis2 r4\! g4 g4 g4 f4. f8 f2 e1\> fis1\p\fermata
+  r4\! a4\< a4 a4 gis4. gis8\!\> gis2 r4\! g!4 g4 g4 f4. f8 f2 e1\> fis1\p\fermata
 }
 
 altonotes = \relative c' {
