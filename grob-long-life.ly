@@ -226,6 +226,14 @@ everybodyWords = \lyricmode {
 \chorusWords каж до му из нас.
 }
 
+date = #(strftime "%d-%m-%Y %H:%M" (localtime (current-time)))
+  \paper {
+    oddFooterMarkup = \markup {
+        Compiled \date
+    }
+    evenFooterMarkup = \oddFooterMarkup
+  }
+
 \score {
   \layout {
   }
