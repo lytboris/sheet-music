@@ -39,30 +39,38 @@ bassnotes = \relative c {
 }
 basswords = \lyricmode {  }
 
+date = #(strftime "%d-%m-%Y %H:%M" (localtime (current-time)))
+  \paper {
+    oddFooterMarkup = \markup {
+       Compiled \date
+    }
+    evenFooterMarkup = \oddFooterMarkup
+  }
+
 \score {
   \new ChoirStaff <<
-    \new Staff <<
+    \new Staff \with { instrumentName = "Soprano" } <<
       \new Voice = "soprano" <<
         \global
         \sopranonotes
       >>
       \new Lyrics \lyricsto "soprano" \sopranowords
     >>
-    \new Staff <<
+    \new Staff \with { instrumentName = "Alto" } <<
       \new Voice = "alto" <<
         \global
         \altonotes
       >>
       \new Lyrics \lyricsto "alto" \altowords
     >>
-    \new Staff <<
+    \new Staff \with { instrumentName = "Tenor" } <<
       \new Voice = "tenor" <<
         \global
         \tenornotes
       >>
       \new Lyrics \lyricsto "tenor" \tenorwords
     >>
-    \new Staff <<
+    \new Staff \with { instrumentName = "Bass" } <<
       \new Voice = "bass" <<
         \global
         \bassnotes
