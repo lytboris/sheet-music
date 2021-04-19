@@ -12,15 +12,13 @@ global = {
   \dynamicUp
 }
 
-sopranonotes = \relative c {
-  \clef "G_8"
+sopranonotes = \relative c' {
   R1*4 d2\p d2 bes'1 
   a1 g2. g4 f1  e1 a2\< a4 a4  bes2 bes2\!\>
   r4\! a4\< a4 a4 gis4. gis8\!\> gis2 r4\! g4 g4 g4 f4. f8 f2 e1\> fis1\p\fermata
 }
 
-altonotes = \relative c {
-  \clef "G_8"
+altonotes = \relative c' {
   R1*3 d2\p d2 a'1~\( a4 g8 fis8\) g2~\( g4 f8 e8\) f2~\( f4 e8 d8\) e2~\( 
   e4 d8 cis8\) d2~\( d4 cis8 b8\) cis2
   r4\< e4 f4 f4 e2 e2\!\> r4\! a,\< d d d4. d8\!\> d2 r4\! cis cis e e d d2 d4\(\> cis8 b8 cis2\) d1\p\fermata
