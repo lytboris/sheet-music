@@ -10,9 +10,14 @@ global = {
 }
 
 sopMusicChorus = \relative {
-  g'8^\markup {\box "Припев"} g g g fis fis fis g~ | g2~ g8 c c c | b b b b a a a g~ |
-  g4 r r8 c c c | d b b b a a a b~ | b2 a8 a a a | g2 fis8 g a fis |
-  g8.( a16 b4) a8 a a a | g2 b8 b b b |
+  g'8 g g g fis fis fis g~ | g2~ g8 c c c | b b b b a a a 
+  \tag #'normalChorus { g~ | g4 a\rest a8\rest }
+% coda does not contain rest here, cut it with tags
+  \tag #'codaChorus { \stemUp { g~ | g2~ g8 } }
+  c c c | d b b b a a a b~ | b2 a8 a a a | g2 fis8 g a fis |
+  g8.( a16 b4) a8 a a a |
+% this goes into alternative in coda  
+  \tag #'normalChorus { g2 b8 b b b } |
 }
 
 sopPreChorusMusic = \relative {
@@ -30,6 +35,8 @@ sopMusic = \relative {
   f f f f e e e e~ | e1 | 
   \mark \markup  { \box "1 куплет"}
   \sopPreChorusMusic
+  \mark \markup { \box "Припев"}
+  \removeWithTag #'codaChorus
   \repeat volta 2 { \sopMusicChorus }
   \alternative
   { {
@@ -45,18 +52,18 @@ sopMusic = \relative {
   \mark \markup  { \box "3 куплет"}
   \sopPreChorusMusic
   \pageBreak
-  \repeat volta 2 {
-    \mark \markup { \box "Кода"}
-    g8 g g g fis fis fis g~ | g2~ g8 c c c | b b b b a a a g~ |
-    g2~ g8 c c c | d b b b a a a b~ | b2 a8 a a a | g2 fis8 g a fis |
-    g8.( a16 b4) a8 a a a | }
+  \mark \markup { \box "Кода"}
+  \removeWithTag #'normalChorus
+  \repeat volta 2 { \sopMusicChorus }
   \alternative {{g2 b8 b b b}{g2 b8 b b b | b1}}
 }
 
 altoMusicChorus = \relative {
-  d'8 d d d dis dis dis e~ | e2~ e8 g g g | g d d d dis dis dis e~ |
-  e4 r r8 g g g | b g g g fis fis fis g~ | g2 fis8 fis fis fis | e2 dis8 e fis dis |
-  e8.( fis16 g4) fis8 fis fis fis | e2 fis8 fis fis fis |  
+  d'8 d d d dis dis dis e~ | e2~ e8 g g g | g d d d dis dis dis 
+  \tag #'normalChorus { e~ | e4 s s8 } 
+  \tag #'codaChorus { \stemUp { \once \omit Flag e~ | e2~ \once \omit Flag e8 } }
+  g g g | b g g g fis fis fis g~ | g2 fis8 fis fis fis | e2 dis8 e fis dis |
+  e8.( fis16 g4) fis8 fis fis fis | \tag #'normalChorus { e2 fis8 fis fis fis } |  
 }
 
 altoPreChorusMusic = \relative {
@@ -68,6 +75,7 @@ altoMusic = \relative {
   \partial 4 a8  b | c c c c c c c b~ | b r8 r2 a8 b | c4 c8 c c c c b~ | b r8 r4 r4 a8 b |
   c c c c c c c  b~ | b1 |
   \altoPreChorusMusic
+  \removeWithTag #'codaChorus
   \repeat volta 2 {  \altoMusicChorus }
   \alternative
   { {                  
@@ -77,23 +85,23 @@ altoMusic = \relative {
   }                
   { g1 }
   }
-  << { \voiceOne s1 s1 s1 s1 } \new Voice { \voiceTwo f2~ \tuplet 3/2 4 { f8 f g a g f } | e1 | c | e | } >> \oneVoice
+  << { \voiceOne s1*4 } \new Voice { \voiceTwo f2~ \tuplet 3/2 4 { f8 f g a g f } | e1 | c | e | } >> \oneVoice
    { \repeat volta 3 { c2 c4. b8 | }
   \alternative {{r2 b}{ r4 e8 r e r r4}}
   }
   \altoPreChorusMusic
-  \repeat volta 2 {
-    d8 d d d  dis dis dis e~ | e2( e8) g g g | d d d d b b b b~ |
-    b2( c8) e e e | d d d d fis fis fis g~ | g2 fis8 fis fis fis | e2 dis8 e fis dis |
-    e8.( fis16 g4) fis8 fis fis fis | }
+  \removeWithTag #'normalChorus
+  \repeat volta 2 { \altoMusicChorus }
   \alternative {{e2 fis8 fis fis fis} {e2 fis8 fis fis fis | gis1}}
 
 }
 
 tenorMusicChorus = \relative {
-  b8 b b b b b b b~ | b2~ b8 e e e | d b b b b b b b~ |
-  b4 r r8 e e e | g d d d dis dis dis e~ | e2 d!8 d d d | c2 b8 b b b |
-  << { \voiceOne s2 } \new Voice { \voiceTwo b2~ } >> d8 d d d | c2 dis8 dis dis dis |
+  b8 b b b b b b b~ | b2~ b8 e e e | d b b b b b b 
+  \tag #'normalChorus { b~ | b4 s s8 }
+  \tag #'codaChorus { \stemUp { \once \omit Flag b~ | b2~ \once \omit Flag b8 } }
+  e e e | g d d d dis dis dis e~ | e2 d!8 d d d | c2 b8 b b b |
+  << { \voiceOne s2 } \new Voice { \voiceTwo b2~ } >> \oneVoice d8 d d d | \tag #'normalChorus { c2 dis8 dis dis dis } |
 }
 
 tenorPreChorusMusic = \relative {
@@ -101,10 +109,23 @@ tenorPreChorusMusic = \relative {
   c~\( c | c( d)\) |  }
 }
 
+tenorMusicIntermission = {
+c'2. a4 | b2. e8 d | c2~ \tuplet 3/2 4 { c8 a b c b a } | d2 b |
+    \repeat volta 3 { a2 a4. b8|}
+  \alternative {{d,2\rest b' }{d,4\rest b'8 d,\rest b' d,\rest b'4\rest}}
+}
+
+fluteMusic = \relative c'' {
+  \repeat percent 2 { g8 d b g' fis dis b fis' | e b e d c e g e |}
+   g8 d b g' fis dis b fis' | e b e d fis d a d | g e c e dis b dis fis | e b e d fis d a d |
+  \tag #'printonly { c2 dis8 dis dis dis} { c2 dis8 dis dis dis | e1 }
+}
+
 tenorMusic = \relative {
   \partial 4 a8 b | a a a a a a a gis~ | gis r8 r2 a8 b | a4 a8 a a a a gis~ | gis r8 r4 r4 a8 b | 
   a a a a a a a gis~ | gis1 | 
   \tenorPreChorusMusic
+  \removeWithTag #'codaChorus
   \repeat volta 2 { \tenorMusicChorus }
   \alternative
   { {
@@ -115,23 +136,21 @@ tenorMusic = \relative {
   { e1 }
   }
   %% moved to bass staff
-  s1 s1 s1 s1 |
-  \repeat volta 3 { s1 }
-  \alternative {{s1}{s1}}
-  \tenorPreChorusMusic 
-  <<
-  \new Staff \with {midiInstrument = #"clarinet"} {
-  \once \omit Staff.TimeSignature
-  \repeat volta 2 {
-  \repeat percent 2 { g8 d b g' fis dis b fis' | e b e d c e g e |}
-   g8 d b g' fis dis b fis' | e b e d fis d a d | g e c e dis b dis fis | e b e d fis d a d |
-  }
-  \alternative{{ c2 dis8 dis dis dis} { c2 dis8 dis dis dis | e1 }}
-  }
-  >>
+  \tag #'printonly { s1*4 | \repeat volta 3 { s1 } \alternative {{s1}{s1}} }
+  \tag #'midionly { \tenorMusicIntermission }
+  \tenorPreChorusMusic
+  \removeWithTag #'normalChorus
+  \repeat volta 2 { \tenorMusicChorus }
+  \alternative{{c,2 dis8 dis dis dis}{c2 dis8 dis dis dis | e1 }}
 }
 
-baseMusicChorus = \relative {
+tenorMusicBassClefCoda = {
+  g8 g g g fis fis fis g~ | g2~ g8 c c c | b b b b  a a a g~ |
+  g2~ g8 c c c| d b16( a) g8 b a a a b~ | b2 a8 a a a | g2 fis8 g a fis | g8.( a16 b4) a8 a a a |
+}
+
+
+bassMusicChorus = \relative {
   g8 g g g b, b b e~ | e2~ e8 c c c | g' g g g b, b b e~ |
   e4 r r8 c c c| g' g g g b, b b e~ | e2 d8 d d d | c2 b8 b b b |
   e2 d8 d d d | c2 b8 b b b | 
@@ -143,7 +162,7 @@ bassMusic = \relative {
   \partial 4 d8 e | f f f f e e e e~ | e r8 r2 d8 e | f4 f8 f e e e e~ | e r8 r4 r4 d8 e |
   f f f f e e e e~ | e2. r8 c8 | a a a a16 a'~ a8 g f e~ | e2. a,8 b | c4 a8 a16 a'~ a8 g f e~ | e2. a,8 b |
   c b c c a' g f g~ | g2( a) | 
-  \repeat volta 2 { \baseMusicChorus }
+  \repeat volta 2 { \bassMusicChorus }
   \alternative
   { {
   e2. d8 e | f f f f e e e8 e8~ | e2. d8 e | f4 f8 f e e e e~ |
@@ -158,16 +177,12 @@ bassMusic = \relative {
      \repeat volta 3 {f2 a,4. e'8|}
      \alternative {{ s2 e }{ s4 e8 s e s c8 b | }}}
   %% tenor temporarily moved to bass clef
-  \new Voice { \voiceOne  { c'2. a4 | b2. e8 d | c2~ \tuplet 3/2 4 { c8 a b c b a } | d2 b | }
-    \repeat volta 3 { a2 a4. b8|}
-  \alternative {{d,2\rest b' }{d,4\rest b'8 d,\rest b' d,\rest b'4\rest}}
-  }>> \oneVoice
+  \new Voice { \voiceOne \tag #'printonly { \tenorMusicIntermission } }
+  >> \oneVoice
   a,8 a a a16 a'~ a8 g f e~ | e2. a,8 b | c a  a a16 a'~ a8 g f e~ | e2. e8 d |
   e e e e f f f g~| g2( a) | 
   % Chorus
-  \repeat volta 2 { <<\voiceOne {
-  g8 g g g fis fis fis g~ | g2~ g8 c c c | b b b b  a a a g~ |
-  g2~ g8 c c c| d b16( a) g8 b a a a b~ | b2 a8 a a a | g2 fis8 g a fis | g8.( a16 b4) a8 a a a | }
+  \repeat volta 2 { <<\voiceOne { \tag #'printonly { \tenorMusicBassClefCoda } }
     \new Voice {\voiceTwo
       g2 b, | e c8 c c c | g'2 b, | e~ e8 c c c | g'2 b, | e d | c b | e d8 d d d 
     } >> \oneVoice }
@@ -222,7 +237,7 @@ everybodyWords = \lyricmode {
  В_не про гляд ной ле дя ной ти ши не __
  нас.
 "" "" "" "" "" "" "" "" "" "" "" "" "" "" ""
-"" "" "" "" "" "" "" "" "" ""
+нет! "" "" "" "" "" "" "" "" ""
 \chorusWords каж до му из нас.
 }
 
@@ -236,7 +251,12 @@ date = #(strftime "%d-%m-%Y %H:%M" (localtime (current-time)))
 
 \score {
   \layout {
+    \context {
+    \Staff \RemoveEmptyStaves
+    \override VerticalAxisGroup.remove-first = ##t
+    }
   }
+  \removeWithTag #'midionly
   \new ChoirStaff
   <<
     \new Staff = "women"
@@ -262,6 +282,11 @@ date = #(strftime "%d-%m-%Y %H:%M" (localtime (current-time)))
       }
     >>
     \new Lyrics = "basses"
+    \new Staff {
+      \once \omit Staff.TimeSignature
+      \global \partial 4 s4 | s1*48 \fluteMusic
+    }
+
     \context Lyrics = "everybody" \lyricsto "sopranos" \everybodyWords
     \context Lyrics = "basses" \lyricsto "basses" \bassWords
   >>
@@ -270,36 +295,23 @@ date = #(strftime "%d-%m-%Y %H:%M" (localtime (current-time)))
 \score {
   \midi { \tempo 4= 98 }
   \unfoldRepeats
+  \removeWithTag #'printonly
   \new ChoirStaff
   <<
    \new Staff = "sopranos" \with {midiInstrument = #"clarinet"} <<
-      \new Voice = "sopranos" {
-      <<
-        \global \sopMusic
-      >>
-      }
+      \new Voice = "sopranos" { \global \sopMusic }
     >>
     \new Staff = "altos" \with {midiInstrument = #"clarinet"} <<
-      \new Voice = "altos" {
-      <<
-        \global \altoMusic
-      >>
-      }
+      \new Voice = "altos" { \global \altoMusic }
     >>
     \new Staff = "tenors" \with {midiInstrument = #"clarinet"} <<
-      \new Voice = "tenors" {
-      <<
-        \global \tenorMusic
-      >>
-      }
+      \new Voice = "tenors" { \global \tenorMusic }
     >>
     \new Staff = "men" \with {midiInstrument = #"cello"}  <<
-      \clef bass
-      \new Voice = "basses" {
-        <<
-          \global \bassMusic
-        >>
-      }
+      \new Voice = "basses" { \global \bassMusic }
+    >>
+    \new Staff \with {midiInstrument = #"flute"} <<
+      \new Voice = "flute" { \global \partial 4 s4 | s1*69 | \fluteMusic }
     >>
   >>
 }
