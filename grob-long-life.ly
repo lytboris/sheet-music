@@ -9,6 +9,10 @@ global = {
   \time 4/4
 }
 
+%%%%%%%%%%
+% Soprano
+%%%%%%%%%%
+
 sopMusicChorus = \relative {
   g'8 g g g fis fis fis g~ | g2~ g8 c c c | b b b b a a a 
   \tag #'normalChorus { g~ | g4 a\rest a8\rest }
@@ -24,7 +28,7 @@ sopPreChorusMusic = \relative {
 a'2~\( a | g~ g\) | a~\( a | g~ g\) |
   a~\( a | g( fis)\) | }
 
-bassWordsThirdVerse = \markup \italic \column {
+shoutOutWords = \markup \italic \column {
  "Искушениям и праздни кам -   нет"
  "Преступлениям и праздникам - нет"
  "Исключениям и праздникам -   нет!    Нет! Нет!"
@@ -47,7 +51,7 @@ sopMusic = \relative {
   { b1 }
   }
   a2~ \tuplet 3/2 4 { a8 a b c b a } | b4 gis e2 | f a4 f | e1 |
-  \repeat volta 3 { f2 \mark \markup { \bassWordsThirdVerse } e4. e8 | }
+  \repeat volta 3 { f2 \mark \markup { \shoutOutWords } e4. e8 | }
   \alternative {{r2 e}{r4 e8 r e r r4}}
   \mark \markup  { \box "3 куплет"}
   \sopPreChorusMusic
@@ -57,6 +61,10 @@ sopMusic = \relative {
   \repeat volta 2 { \sopMusicChorus }
   \alternative {{g2 b8 b b b}{g2 b8 b b b | b1}}
 }
+
+%%%%%%%
+% Alto
+%%%%%%%
 
 altoMusicChorus = \relative {
   d'8 d d d dis dis dis e~ | e2~ e8 g g g | g d d d dis dis dis 
@@ -96,6 +104,10 @@ altoMusic = \relative {
 
 }
 
+%%%%%%%%
+% Tenor
+%%%%%%%%
+
 tenorMusicChorus = \relative {
   b8 b b b b b b b~ | b2~ b8 e e e | d b b b b b b 
   \tag #'normalChorus { b~ | b4 s s8 }
@@ -113,12 +125,6 @@ tenorMusicIntermission = {
 c'2. a4 | b2. e8 d | c2~ \tuplet 3/2 4 { c8 a b c b a } | d2 b |
     \repeat volta 3 { a2 a4. b8|}
   \alternative {{d,2\rest b' }{d,4\rest b'8 d,\rest b' d,\rest b'4\rest}}
-}
-
-fluteMusic = \relative c'' {
-  \repeat percent 2 { g8 d b g' fis dis b fis' | e b e d c e g e |}
-   g8 d b g' fis dis b fis' | e b e d fis d a d | g e c e dis b dis fis | e b e d fis d a d |
-  \tag #'printonly { c2 dis8 dis dis dis} { c2 dis8 dis dis dis | e1 }
 }
 
 tenorMusic = \relative {
@@ -144,19 +150,21 @@ tenorMusic = \relative {
   \alternative{{c,2 dis8 dis dis dis}{c2 dis8 dis dis dis | e1 }}
 }
 
+% This part goes to tenor in midi but should be in bass clef
 tenorMusicBassClefCoda = {
   g8 g g g fis fis fis g~ | g2~ g8 c c c | b b b b  a a a g~ |
   g2~ g8 c c c| d b16( a) g8 b a a a b~ | b2 a8 a a a | g2 fis8 g a fis | g8.( a16 b4) a8 a a a |
 }
 
+%%%%%%%
+% Bass
+%%%%%%%
 
 bassMusicChorus = \relative {
   g8 g g g b, b b e~ | e2~ e8 c c c | g' g g g b, b b e~ |
   e4 r r8 c c c| g' g g g b, b b e~ | e2 d8 d d d | c2 b8 b b b |
   e2 d8 d d d | c2 b8 b b b | 
 }
-
-
 
 bassMusic = \relative {
   \partial 4 d8 e | f f f f e e e e~ | e r8 r2 d8 e | f4 f8 f e e e e~ | e r8 r4 r4 d8 e |
@@ -165,13 +173,11 @@ bassMusic = \relative {
   \repeat volta 2 { \bassMusicChorus }
   \alternative
   { {
-  e2. d8 e | f f f f e e e8 e8~ | e2. d8 e | f4 f8 f e e e e~ |
-  e2. d8 e | f4 f8 f e e e e~ | e4 e e e8 d16 c~ | c4  a8. a16 a'8 g f g~( | g4. f8 e4) e8 e16 e~ |
-  e4 e8 e f f f g~ | g2 r4 g8 g | a a a g f f f g~ | g2( d) |
+    e2. d8 e | f f f f e e e8 e8~ | e2. d8 e | f4 f8 f e e e e~ |
+    e2. d8 e | f4 f8 f e e e e~ | e4 e e e8 d16 c~ | c4  a8. a16 a'8 g f g~( | g4. f8 e4) e8 e16 e~ |
+    e4 e8 e f f f g~ | g2 r4 g8 g | a a a g f f f g~ | g2( d) |
   }
-  {
-  e1
-  }
+  { e1 }
   }
   << { \voiceTwo  { f1 | e | f2~ \tuplet 3/2 4 { f8 f g a g f } | e1 | }
      \repeat volta 3 {f2 a,4. e'8|}
@@ -181,7 +187,7 @@ bassMusic = \relative {
   >> \oneVoice
   a,8 a a a16 a'~ a8 g f e~ | e2. a,8 b | c a  a a16 a'~ a8 g f e~ | e2. e8 d |
   e e e e f f f g~| g2( a) | 
-  % Chorus
+  % Coda chorus
   \repeat volta 2 { <<\voiceOne { \tag #'printonly { \tenorMusicBassClefCoda } }
     \new Voice {\voiceTwo
       g2 b, | e c8 c c c | g'2 b, | e~ e8 c c c | g'2 b, | e d | c b | e d8 d d d 
@@ -191,6 +197,20 @@ bassMusic = \relative {
     { <<{g2 b,8 b b b | e1} {c2 b'8 b b b | b1}>> }
   }
 }
+
+% The very last chorus is enriched with one more voice. Midi-only (due to unrolled repeats)
+% rest measures are put in place in a crude way
+fluteMusic = \relative c'' {
+  \partial 4 s4 | s1*48
+  \tag #'midionly { s1*21 }
+  \repeat percent 2 { g8 d b g' fis dis b fis' | e b e d c e g e |}
+   g8 d b g' fis dis b fis' | e b e d fis d a d | g e c e dis b dis fis | e b e d fis d a d |
+  \tag #'printonly { c2 dis8 dis dis dis} { c2 dis8 dis dis dis | e1 }
+}
+
+%%%%%%%%%
+% Lyrics
+
 
 chorusWords = \lyricmode {
  { Дол гая я счаст ли ва я жизнь, __ та ка я дол га я счаст ли ва я жизнь,
@@ -249,6 +269,11 @@ date = #(strftime "%d-%m-%Y %H:%M" (localtime (current-time)))
     evenFooterMarkup = \oddFooterMarkup
   }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Global score structure
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Print-firendly score, midi-only notes are omitted
 \score {
   \layout {
     \context {
@@ -284,7 +309,7 @@ date = #(strftime "%d-%m-%Y %H:%M" (localtime (current-time)))
     \new Lyrics = "basses"
     \new Staff {
       \once \omit Staff.TimeSignature
-      \global \partial 4 s4 | s1*48 \fluteMusic
+      \global  \fluteMusic
     }
 
     \context Lyrics = "everybody" \lyricsto "sopranos" \everybodyWords
@@ -292,6 +317,7 @@ date = #(strftime "%d-%m-%Y %H:%M" (localtime (current-time)))
   >>
 }
 
+% midi-specific score, print-only notes are omitted
 \score {
   \midi { \tempo 4= 98 }
   \unfoldRepeats
@@ -311,7 +337,7 @@ date = #(strftime "%d-%m-%Y %H:%M" (localtime (current-time)))
       \new Voice = "basses" { \global \bassMusic }
     >>
     \new Staff \with {midiInstrument = #"flute"} <<
-      \new Voice = "flute" { \global \partial 4 s4 | s1*69 | \fluteMusic }
+      \new Voice = "flute" { \global \fluteMusic }
     >>
   >>
 }
