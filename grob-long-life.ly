@@ -60,7 +60,7 @@ altoMusicChorus = \relative {
 }
 
 altoPreChorusMusic = \relative {
-e'2~\( e | e( d)\) | e~\( f | e~ e\) |
+e'2\( f | e( d)\) | e~\( f | e d\) |
   e\( f | e( fis)\) | 
 }
 
@@ -92,7 +92,7 @@ altoMusic = \relative {
 
 tenorMusicChorus = \relative {
   b8 b b b b b b b~ | b2~ b8 e e e | d b b b b b b b~ |
-  b4 r r8 e e e | g d d d d d d e~ | e2 d8 d d d | c2 b8 b b b |
+  b4 r r8 e e e | g d d d dis dis dis e~ | e2 d!8 d d d | c2 b8 b b b |
   << { \voiceOne s2 } \new Voice { \voiceTwo b2~ } >> d8 d d d | c2 dis8 dis dis dis |
 }
 
@@ -109,7 +109,7 @@ tenorMusic = \relative {
   \alternative
   { {
     e'2. s4 | c2\( c | b1\) | c2\( c |
-    b1 | c2~ c | b2. c8 b16 a~ | a4 a8. a16 c8 c c c | c2 s4 g8 g16 a~ |
+    b1 | c2~ c | b2. c8 b16 a~ | a4 a8. a16 c8 c c c | c2 s4 gis8 gis16 a~ |
     c4 a8 a c c c c~ | c2 s4 b8 b | c c c c c c c c~ | c2( d) |
   }
   { e1 }
