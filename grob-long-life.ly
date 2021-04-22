@@ -50,6 +50,7 @@ sopMusic = \relative {
   }
   { b1 }
   }
+  % intermission
   a2~ \tuplet 3/2 4 { a8 a b c b a } | b4 gis e2 | f a4 f | e1 |
   \repeat volta 3 { f2 \mark \markup { \shoutOutWords } e4. e8 | }
   \alternative {{r2 e}{r4 e8 r e r r4}}
@@ -87,17 +88,20 @@ altoMusic = \relative {
   \repeat volta 2 {  \altoMusicChorus }
   \alternative
   { {                  
+% 2 verse
     g'2. s4 | f2\( e | e1\) | f2\( e |
     e1 | f2 e | e2. e8 d16 c~ | c4  a8. a16 f'8 e d e | e2 s4 b8 b16 c~ |
     a4 a8 a a' g f e~ | e2 s4  e8 d | e e e e <c' a> <b g> <a f> e~ | e2 fis |
   }                
   { g1 }
   }
+% intermission
   << { \voiceOne s1*4 } \new Voice { \voiceTwo f2~ \tuplet 3/2 4 { f8 f g a g f } | e1 | c | e | } >> \oneVoice
    { \repeat volta 3 { c2 c4. b8 | }
   \alternative {{r2 b}{ r4 e8 r e r r4}}
   }
   \altoPreChorusMusic
+% coda
   \removeWithTag #'normalChorus
   \repeat volta 2 { \altoMusicChorus }
   \alternative {{e2 fis8 fis fis fis} {e2 fis8 fis fis fis | gis1}}
@@ -135,16 +139,18 @@ tenorMusic = \relative {
   \repeat volta 2 { \tenorMusicChorus }
   \alternative
   { {
+% 2 verse
     e'2. s4 | c2\( c | b1\) | c2\( c |
     b1 | c2~ c | b2. c8 b16 a~ | a4 a8. a16 c8 c c c | c2 s4 gis8 gis16 a~ |
     c4 a8 a c c c c~ | c2 s4 b8 b | c c c c c c c c~ | c2( d) |
   }
   { e1 }
   }
-  %% moved to bass staff
+  %% intermission - moved to bass staff
   \tag #'printonly { s1*4 | \repeat volta 3 { s1 } \alternative {{s1}{s1}} }
   \tag #'midionly { \tenorMusicIntermission }
   \tenorPreChorusMusic
+  %coda
   \removeWithTag #'normalChorus
   \repeat volta 2 { \tenorMusicChorus }
   \alternative{{c,2 dis8 dis dis dis}{c2 dis8 dis dis dis | e1 }}
@@ -210,7 +216,7 @@ fluteMusic = \relative c'' {
 
 %%%%%%%%%
 % Lyrics
-
+%%%%%%%%%
 
 chorusWords = \lyricmode {
  { Дол гая я счаст ли ва я жизнь, __ та ка я дол га я счаст ли ва я жизнь,
