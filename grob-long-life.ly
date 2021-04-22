@@ -90,8 +90,8 @@ altoMusic = \relative {
   { {                  
 % 2 verse
     g'2. s4 | f2\( e | e1\) | f2\( e |
-    e1 | f2 e | e2. e8 d16 c~ | c4  a8. a16 f'8 e d e | e2 s4 b8 b16 c~ |
-    a4 a8 a a' g f e~ | e2 s4  e8 d | e e e e <c' a> <b g> <a f> e~ | e2 fis |
+    e1 | f2 e | e2. e8 d16 c~ | c4  a8. a16 f'8 e d e~ | e2 s4 b8 b16 c~ |
+    c4 a8 a a' g f e~ | e2 s4  e8 d | e e e e <c' a> <b g> <a f> e~ | e2 fis |
   }                
   { g1 }
   }
@@ -141,19 +141,19 @@ tenorMusic = \relative {
   { {
 % 2 verse
     e'2. s4 | c2\( c | b1\) | c2\( c |
-    b1 | c2~ c | b2. c8 b16 a~ | a4 a8. a16 c8 c c c | c2 s4 gis8 gis16 a~ |
-    c4 a8 a c c c c~ | c2 s4 b8 b | c c c c c c c c~ | c2( d) |
+    b1 | c2~ c | b2. c8 b16 a~ | a4 a8. a16 c8 c c c~ | c2 s4 gis8 gis16 a~ |
+    a4 a8 a c c c c~ | c2 s4 b8 b | c c c c c c c c~ | c2( d) |
   }
   { e1 }
   }
   %% intermission - moved to bass staff
   \tag #'printonly { s1*4 | \repeat volta 3 { s1 } \alternative {{s1}{s1}} }
-  \tag #'midionly { \tenorMusicIntermission }
+  \tag #'midionly { \relative c { \tenorMusicIntermission } }
   \tenorPreChorusMusic
   %coda
   \removeWithTag #'normalChorus
   \repeat volta 2 { \tenorMusicChorus }
-  \alternative{{c,2 dis8 dis dis dis}{c2 dis8 dis dis dis | e1 }}
+  \alternative{{c2 dis8 dis dis dis}{c2 dis8 dis dis dis | e1 }}
 }
 
 % This part goes to tenor in midi but should be in bass clef
