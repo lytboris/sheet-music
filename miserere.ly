@@ -50,75 +50,57 @@ date = #(strftime "%d-%m-%Y %H:%M" (localtime (current-time)))
     evenFooterMarkup = \oddFooterMarkup
   }
 
-
-\score {
-  \new ChoirStaff <<
-    \new Staff \with { instrumentName = "Soprano" } <<
+gigaStaff = {
+  \new ChoirStaff \with {midiInstrument = #"choir aahs"} <<
+    \new Staff <<
+      \set Staff.instrumentName = "Soprano"
       \new Voice = "soprano" <<
         \global
         \sopranonotes
+        \context Lyrics = "soprano" \lyricsto "soprano" \sopranowords
       >>
-      \new Lyrics \lyricsto "soprano" \sopranowords
     >>
-    \new Staff \with { instrumentName = "Alto" } <<
+    \new Staff <<
+      \set Staff.instrumentName = "Alto"
       \new Voice = "alto" <<
         \global
         \altonotes
+        \context Lyrics = "alto" \lyricsto "alto" \altowords
       >>
-      \new Lyrics \lyricsto "alto" \altowords
     >>
-    \new Staff \with { instrumentName = "Tenor" } <<
+    \new Staff <<
+      \set Staff.instrumentName = "Tenor"
       \new Voice = "tenor" <<
         \global
         \tenornotes
+        \context Lyrics = "tenor" \lyricsto "tenor" \tenorwords
       >>
-      \new Lyrics \lyricsto "tenor" \tenorwords
     >>
-    \new Staff \with { instrumentName = "Bass" } <<
+    \new Staff <<
+      \set Staff.instrumentName = "Bass"
       \new Voice = "bass" <<
         \global
         \bassnotes
+        \context Lyrics = "bass" \lyricsto "bass" \basswords
       >>
-      \new Lyrics \lyricsto "bass" \basswords
     >>
   >>
+}
+
+\score {
+  \layout {
+    \context {
+    \Staff \RemoveEmptyStaves
+    \override VerticalAxisGroup.remove-first = ##t
+    }
+  }
+\gigaStaff
 }
 
 
 \score {
   \midi { \tempo 4= 80 }
   \unfoldRepeats
-  \new ChoirStaff
-  <<
-   \new Staff = "sopranos" \with {midiInstrument = #"soprano sax"} <<
-      \new Voice = "sopranos" {
-      <<
-        \global \sopranonotes
-      >>
-      }
-    >>
-    \new Staff = "altos" \with {midiInstrument = #"clarinet"} <<
-      \new Voice = "altos" {
-      <<
-        \global \altonotes
-      >>
-      }
-    >>
-    \new Staff = "tenors" \with {midiInstrument = #"drawbar organ"} <<
-      \new Voice = "tenors" {
-      <<
-        \global \tenornotes
-      >>
-      }
-    >>
-    \new Staff = "men" \with {midiInstrument = #"cello"}  <<
-      \clef bass
-      \new Voice = "basses" {
-        <<
-          \global \bassnotes
-        >>
-      }
-    >>
-  >>
+  \gigaStaff
 }
 
