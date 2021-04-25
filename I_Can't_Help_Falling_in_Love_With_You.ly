@@ -85,7 +85,9 @@ altoMusicVerse = \relative c' {
 }
 
 altoMusicChorus = \relative c' {
-   c2  g'2 | % 23
+   c2
+   \tag #'secondIntroChorus { e2 }
+   \tag #'normalChorus { g2 } | % 23
    c,2.  d8  e8 | % 24
    f2  e2 | % 25
    d2. r8  g,8 | % 26
@@ -100,24 +102,15 @@ altoMusicChorus = \relative c' {
 
 altoMusic =  \relative c' {
   \clef "treble" | % 1
-  \altoMusicChorus |
+  \removeWithTag #'secondIntroChorus \altoMusicChorus |
   c1 | \break % 9
-   c2  e2 | % 10
-   c2.  d8  e8 | % 11
-   f2  e2 | % 12
-   d2. r8  g,8 | % 13
-   a2  b2 | % 14
-   c2 \times 2/3 {
-     d4  e4  f4
-  }
-  | % 15
-   e2  d2 | % 16
+  \removeWithTag #'normalChorus \altoMusicChorus |
   c1 | % 17
   \altoMusicVerse |
-  \altoMusicChorus |
+  \removeWithTag #'secondIntroChorus \altoMusicChorus |
   c1 | % 30
   \altoMusicVerse |
-  \altoMusicChorus |
+    \removeWithTag #'secondIntroChorus \altoMusicChorus |
   c2. r8  g8 | % 43
    a2  b2 | % 44
    c2 \times 2/3 {
@@ -128,14 +121,17 @@ altoMusic =  \relative c' {
   c1 ^\fermata \bar "|."
 }
 
+altoLyricsChorus = \lyricmode {
+Take my "hand," take my whole life too for I "can't" help fal -- ling in
+  love with "you."}
+
 altoLyrics =  \lyricmode {
   \set ignoreMelismata = ##t Wise
   men say on -- ly fools rush in but I "can't" help fal -- ling in
   love with "you." Shall I "stay?" Would it be a "sin?" If I "can't"
-  help fal -- ling in love with "you." Ah ah -- ah ah ah ah -- ah Take
-  my "hand," take my whole life too for I "can't" help fal -- ling in
-  love with "you." Ah ah -- ah ah ah ah -- ah take my hand take my
-  whole life "too," for I "can't" help fal -- ling in love with "you."
+  help fal -- ling in love with "you." Ah ah -- ah ah ah ah -- ah 
+  \altoLyricsChorus
+  Ah ah -- ah ah ah ah -- ah \altoLyricsChorus
   for I "can't" help fal -- ling in love with "you."
 }
 
@@ -188,14 +184,16 @@ tenorMusic =  \relative c' {
   c1 ^\fermata \bar "|."
 }
 
+tenorLyricsVerse = \lyricmode {
+Like a riv -- er flo -- ws sure -- ly to the se -- a dar -- ling so it go
+  -- es some things are meant to be -- e }
+
 tenorLyrics =  \lyricmode {
   \set ignoreMelismata = ##t
-  Shall I "stay?" be a "sin?" if I "can't" help love with "you." Like
-  a riv -- er flo -- ws sure -- ly to the se -- a dar -- ling so it go
-  -- es some things are meant to be -- e Take my ha -- a -- a -- and
+  Shall I "stay?" be a "sin?" if I "can't" help love with "you." 
+  \tenorLyricsVerse Take my ha -- a -- a -- and
   whole life too for I\skip1 ca -- "n't" help\skip1 love with "you."
-  Like a riv -- er flo -- ws sure -- ly to the se -- a dar -- ling so
-  it go -- es some things are made to be --\skip1 dmm -- mm dmm dmm --
+  \tenorLyricsVerse dmm -- mm dmm dmm --
   mm -- dmm dmm -- mm dmm dmm -- mm -- dmm\skip1 \skip1 \skip1 \skip1
   \skip1 \skip1
 }
