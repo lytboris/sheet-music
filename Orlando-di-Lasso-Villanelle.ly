@@ -89,87 +89,60 @@ words_volta_two = {
   \lyricmode { Будь же счас -- тли -- вой, будь же счас -- тли -- вой, ты, мо -- я ра -- дость, }
 }
 
-words_fin = \lyricmode { цве- ток. ток. }
+words_full = \lyricmode {\repeat volta 2 { \words_volta_one } \repeat volta 2 { \words_volta_two цве }
+\alternative { ток } { ток }}
 
-words_full = \lyricmode {\words_volta_one \words_volta_two \words_fin}
-
-sopranowords = \lyricmode {\words_volta_one_pt_one o, \words_volta_one_pt_two \words_volta_two мой \words_fin}
+sopranowords = \lyricmode {\repeat volta 2 { \words_volta_one_pt_one o, \words_volta_one_pt_two }
+  \repeat volta 2 { \words_volta_two мой цве- } \alternative { ток } { ток }}
 altowords = \lyricmode {\words_full}
 tenorwords = \lyricmode {\words_full}
 basswords = \lyricmode {\words_full}
 
-\score {
+gigaStaff = {
   \new ChoirStaff <<
-    \new Staff <<
+    \new Staff \with {midiInstrument = #"soprano sax"} <<
       \set Staff.instrumentName = #"S."
       \new Voice = "soprano" <<
         \global
         \sopranonotes
+        \context Lyrics = "soprano" \lyricsto "soprano" \sopranowords
       >>
-      \new Lyrics \lyricsto "soprano" \sopranowords
     >>
-    \new Staff <<
+    \new Staff \with {midiInstrument = #"clarinet"} <<
       \set Staff.instrumentName = #"A."
       \new Voice = "alto" <<
         \global
         \altonotes
+        \context Lyrics = "alto" \lyricsto "alto" \altowords
       >>
-      \new Lyrics \lyricsto "alto" \altowords
     >>
-    \new Staff <<
+    \new Staff \with {midiInstrument = #"drawbar organ"} <<
       \set Staff.instrumentName = #"T."
       \new Voice = "tenor" <<
         \global
         \tenornotes
+        \context Lyrics = "tenor" \lyricsto "tenor" \tenorwords
       >>
-      \new Lyrics \lyricsto "tenor" \tenorwords
     >>
-    \new Staff <<
+    \new Staff \with {midiInstrument = #"cello"} <<
       \set Staff.instrumentName = #"B."
       \new Voice = "bass" <<
         \global
         \bassnotes
+        \context Lyrics = "bass" \lyricsto "bass" \basswords
       >>
-      \new Lyrics \lyricsto "bass" \basswords
     >>
   >>
 }
 
 \score {
+\gigaStaff
+}
+
+\score {
   \midi {}
   \unfoldRepeats
-  \new ChoirStaff
-  <<
-   \new Staff = "sopranos" \with {midiInstrument = #"soprano sax"} <<
-      \new Voice = "sopranos" {
-      <<
-        \global \sopranonotes
-      >>
-      }
-    >>
-    \new Staff = "altos" \with {midiInstrument = #"clarinet"} <<
-      \new Voice = "altos" {
-      <<
-        \global \altonotes
-      >>
-      }
-    >>
-    \new Staff = "tenors" \with {midiInstrument = #"drawbar organ"} <<
-      \new Voice = "tenors" {
-      <<
-        \global \tenornotes
-      >>
-      }
-    >>
-    \new Staff = "men" \with {midiInstrument = #"cello"}  <<
-      \clef bass
-      \new Voice = "basses" {
-        <<
-          \global \bassnotes
-        >>
-      }
-    >>
-  >>
+  \gigaStaff
 }
 
 date = #(strftime "%d-%m-%Y %H:%M" (localtime (current-time)))
