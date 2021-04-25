@@ -11,15 +11,9 @@
   }
 }
 
-date = #(strftime "%d-%m-%Y %H:%M" (localtime (current-time)))
-\paper {
-  oddFooterMarkup = \markup { Compiled \date }
-  evenFooterMarkup = \oddFooterMarkup
-}
-
 global = { \numericTimeSignature\time 4/4 \key c \major }
 
-sopranoMusicVerse = \relative e' {
+sopranonotesVerse = \relative e' {
    e2  dis2 | % 18
    g2  fis2 | % 19
    e2  dis2 | % 20
@@ -27,7 +21,7 @@ sopranoMusicVerse = \relative e' {
    c2  d2
 }
 
-sopranoMusic =  \relative e' {
+sopranonotes =  \relative e' {
   \clef "treble" \mark \markup{ \bold {Adagio} } | % 1
    R1*8 | % 8
    e2  g2 | % 10
@@ -41,7 +35,7 @@ sopranoMusic =  \relative e' {
   | % 15
    g2  f2 | % 16
    e1 | % 17
-   \sopranoMusicVerse | \break % 22
+   \sopranonotesVerse | \break % 22
    e2.  g4 ~ | % 23
    g4  e2  f8 [  e8 ] | % 24
    r4  a2  g4~ | % 25
@@ -50,7 +44,7 @@ sopranoMusic =  \relative e' {
    e4 (  d2. ) | % 28
    g2  g2 | % 29
    e1 | \pageBreak % 30
-   \sopranoMusicVerse | \break % 35
+   \sopranonotesVerse | \break % 35
    e2  g2 | % 36
    e2. r4 | % 37
    a2  g2 | % 38
@@ -67,7 +61,7 @@ sopranoMusic =  \relative e' {
   <e g>1 ) ^\fermata \bar "|."
 }
 
-sopranoLyrics =  \lyricmode {
+sopranowords =  \lyricmode {
   \set ignoreMelismata = ##t
   Shall I "stay?" be a "sin?" I "can't" help fal -- ling in love with
   "you." Ah -- ah ah -- ah ah -- ah ah ah -- ah Take my\skip1 hand
@@ -76,7 +70,7 @@ sopranoLyrics =  \lyricmode {
   mm dmm dmm -- mm dmm dmm dmm dmm dmm dmm dmm\skip1 \skip1
 }
 
-altoMusicVerse = \relative c' {
+altonotesVerse = \relative c' {
   b1 | % 18
    e2  dis2 | % 19
   b1 | % 20
@@ -84,7 +78,7 @@ altoMusicVerse = \relative c' {
    a2  b2 | % 22
 }
 
-altoMusicChorus = \relative c' {
+altonotesChorus = \relative c' {
    c2
    \tag #'secondIntroChorus { e2 }
    \tag #'normalChorus { g2 } | % 23
@@ -100,17 +94,17 @@ altoMusicChorus = \relative c' {
 }
 
 
-altoMusic =  \relative c' {
+altonotes =  \relative c' {
   \clef "treble" | % 1
-  \removeWithTag #'secondIntroChorus \altoMusicChorus |
+  \removeWithTag #'secondIntroChorus \altonotesChorus |
   c1 | \break % 9
-  \removeWithTag #'normalChorus \altoMusicChorus |
+  \removeWithTag #'normalChorus \altonotesChorus |
   c1 | % 17
-  \altoMusicVerse |
-  \removeWithTag #'secondIntroChorus \altoMusicChorus |
+  \altonotesVerse |
+  \removeWithTag #'secondIntroChorus \altonotesChorus |
   c1 | % 30
-  \altoMusicVerse |
-    \removeWithTag #'secondIntroChorus \altoMusicChorus |
+  \altonotesVerse |
+    \removeWithTag #'secondIntroChorus \altonotesChorus |
   c2. r8  g8 | % 43
    a2  b2 | % 44
    c2 \times 2/3 {
@@ -121,21 +115,21 @@ altoMusic =  \relative c' {
   c1 ^\fermata \bar "|."
 }
 
-altoLyricsChorus = \lyricmode {
+altowordsChorus = \lyricmode {
 Take my "hand," take my whole life too for I "can't" help fal -- ling in
   love with "you."}
 
-altoLyrics =  \lyricmode {
+altowords =  \lyricmode {
   \set ignoreMelismata = ##t Wise
   men say on -- ly fools rush in but I "can't" help fal -- ling in
   love with "you." Shall I "stay?" Would it be a "sin?" If I "can't"
   help fal -- ling in love with "you." Ah ah -- ah ah ah ah -- ah 
-  \altoLyricsChorus
-  Ah ah -- ah ah ah ah -- ah \altoLyricsChorus
+  \altowordsChorus
+  Ah ah -- ah ah ah ah -- ah \altowordsChorus
   for I "can't" help fal -- ling in love with "you."
 }
 
-tenorMusicVerse = \relative c {
+tenornotesVerse = \relative c {
    b8. [  e8.  g16  b16~ ]  b16 (
    a4.. ) | % 18
    b,8. [  e8.  g16  b16~ ]  b16 (
@@ -146,7 +140,7 @@ tenorMusicVerse = \relative c {
    f2 (  g2 ) | % 22
 }
 
-tenorMusic =  \relative c' {
+tenornotes =  \relative c' {
   \clef "treble_8" | % 1
   R1*8 | % 9
    c2  b2 | % 10
@@ -157,7 +151,7 @@ tenorMusic =  \relative c' {
   a1 | % 15
    c2  g2 | % 16
   c,1 | % 17
-   \tenorMusicVerse |
+   \tenornotesVerse |
    c'2  b2 | % 23
    a4 (  g4 f4 g4 ) | % 24
    c2  c2 | % 25
@@ -166,7 +160,7 @@ tenorMusic =  \relative c' {
    g4 (  a2. ) | % 28
    c2  b2 | % 29
   c1 | % 30
-   \tenorMusicVerse |
+   \tenornotesVerse |
    c2  b2 | % 36
    a2. r4 | % 37
    c2  c2 | % 38
@@ -184,58 +178,67 @@ tenorMusic =  \relative c' {
   c1 ^\fermata \bar "|."
 }
 
-tenorLyricsVerse = \lyricmode {
+tenorwordsVerse = \lyricmode {
 Like a riv -- er flo -- ws sure -- ly to the se -- a dar -- ling so it go
   -- es some things are meant to be -- e }
 
-tenorLyrics =  \lyricmode {
+tenorwords =  \lyricmode {
   \set ignoreMelismata = ##t
   Shall I "stay?" be a "sin?" if I "can't" help love with "you." 
-  \tenorLyricsVerse Take my ha -- a -- a -- and
+  \tenorwordsVerse Take my ha -- a -- a -- and
   whole life too for I\skip1 ca -- "n't" help\skip1 love with "you."
-  \tenorLyricsVerse dmm -- mm dmm dmm --
+  \tenorwordsVerse dmm -- mm dmm dmm --
   mm -- dmm dmm -- mm dmm dmm -- mm -- dmm\skip1 \skip1 \skip1 \skip1
   \skip1 \skip1
 }
 
+bassnotes = {}
+basswords = {}
 
 % The score definition
-\score {
-
-\new ChoirStaff
-<<
-    \new Staff
-    <<
+gigaStaff = {
+  \new ChoirStaff \with {midiInstrument = #"choir aahs"} <<
+    \new Staff <<
       \set Staff.instrumentName = "Soprano"
       \set Staff.shortInstrumentName = "S."
-
-      \context Staff <<
-        \context Voice = "sopranoMusic" { \global \sopranoMusic }
-        \new Lyrics \lyricsto "sopranoMusic" { \sopranoLyrics }
+      \new Voice = "soprano" <<
+        \global
+        \sopranonotes
+        \context Lyrics = "soprano" \lyricsto "soprano" \sopranowords
       >>
     >>
-    \new Staff
-    <<
+    \new Staff <<
       \set Staff.instrumentName = "Alto"
       \set Staff.shortInstrumentName = "A."
-
-      \context Staff <<
-        \context Voice = "altoMusic" { \global \altoMusic }
-        \new Lyrics \lyricsto "altoMusic" { \altoLyrics }
+      \new Voice = "alto" <<
+        \global
+        \altonotes
+        \context Lyrics = "alto" \lyricsto "alto" \altowords
       >>
     >>
-    \new Staff
-    <<
+    \new Staff <<
       \set Staff.instrumentName = "Tenor"
       \set Staff.shortInstrumentName = "T."
-
-      \context Staff <<
-        \context Voice = "tenorMusic" { \global \tenorMusic }
-        \new Lyrics \lyricsto "tenorMusic" { \tenorLyrics }
+      \new Voice = "tenor" <<
+        \global
+        \tenornotes
+        \context Lyrics = "tenor" \lyricsto "tenor" \tenorwords
       >>
     >>
-
+    \new Staff  <<
+      \set Staff.instrumentName = "Bass"
+      \set Staff.shortInstrumentName = "B."
+      \new Voice = "bass" <<
+        \global
+        \bassnotes
+        \context Lyrics = "bass" \lyricsto "bass" \basswords
+      >>
+    >>
   >>
+}
+
+\score {
+  \gigaStaff
   \layout {
    \context {
     \Staff \RemoveEmptyStaves
@@ -243,20 +246,18 @@ tenorLyrics =  \lyricmode {
     }
   }
 }
+
 \score {
-  \unfoldRepeats
-  \new ChoirStaff
-  <<
-    \new Staff = "s" \with {midiInstrument = #"clarinet"} <<
-        \new Voice = "sopranoMusic" { \global \sopranoMusic }
-    >>
-    \new Staff = "a" \with {midiInstrument = #"clarinet"} <<
-        \new Voice = "altoMusic" { \global \altoMusic }
-    >>
-    \new Staff = "t" \with {midiInstrument = #"clarinet"} <<
-        \new Voice = "tenorMusic" { \global \tenorMusic }
-    >>
-  >>
   \midi {\tempo 4 = 90 }
+  \unfoldRepeats
+  \gigaStaff
+}
+
+date = #(strftime "%d-%m-%Y %H:%M" (localtime (current-time)))
+\paper {
+  oddFooterMarkup = \markup {
+      Compiled \date
+  }
+  evenFooterMarkup = \oddFooterMarkup
 }
 
