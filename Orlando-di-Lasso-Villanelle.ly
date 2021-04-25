@@ -48,7 +48,8 @@ altonotes = \relative c' {
   }
 }
 
-tenornotes = \relative c'' {
+tenornotes = \relative c' {
+  \clef "G_8"
   \repeat volta 2 {
     c2 a4 a4 | bes4 c4 d2 | c4 \breathe c c c | d d c2 | a4 c2 c4 | d2 e2
   }
@@ -100,7 +101,7 @@ basswords = \lyricmode {\words_full}
 
 gigaStaff = {
   \new ChoirStaff <<
-    \new Staff \with {midiInstrument = #"soprano sax"} <<
+    \new Staff \with {midiInstrument = #"choir aahs"} <<
       \set Staff.instrumentName = #"S."
       \new Voice = "soprano" <<
         \global
@@ -108,7 +109,7 @@ gigaStaff = {
         \context Lyrics = "soprano" \lyricsto "soprano" \sopranowords
       >>
     >>
-    \new Staff \with {midiInstrument = #"clarinet"} <<
+    \new Staff \with {midiInstrument = #"choir aahs"} <<
       \set Staff.instrumentName = #"A."
       \new Voice = "alto" <<
         \global
@@ -116,7 +117,7 @@ gigaStaff = {
         \context Lyrics = "alto" \lyricsto "alto" \altowords
       >>
     >>
-    \new Staff \with {midiInstrument = #"drawbar organ"} <<
+    \new Staff \with {midiInstrument = #"choir aahs"} <<
       \set Staff.instrumentName = #"T."
       \new Voice = "tenor" <<
         \global
@@ -124,7 +125,7 @@ gigaStaff = {
         \context Lyrics = "tenor" \lyricsto "tenor" \tenorwords
       >>
     >>
-    \new Staff \with {midiInstrument = #"cello"} <<
+    \new Staff \with {midiInstrument = #"choir aahs"} <<
       \set Staff.instrumentName = #"B."
       \new Voice = "bass" <<
         \global
