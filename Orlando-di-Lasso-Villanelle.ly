@@ -15,7 +15,7 @@ global = {
 
 sopranonotes = \relative c'' {
   \repeat volta 2 {
-    \tempo "legato dolce"
+    \tempo "legato dolce" 4 = 120
     \mark \markup {\circle 1}
     a2 f4 f4 | g4 a4 bes2 | a4 \breathe 
     \mark \markup {\circle 2}
@@ -24,7 +24,7 @@ sopranonotes = \relative c'' {
   \set Score.doubleRepeatType = #":|.|:"
   \repeat volta 2 {
     \mark \markup {\circle 3}
-    \tempo "leggiero"
+    \tempo "leggiero" 4 = 140
     a4 a8 a8 fis4 fis4 | g4 g8 g8 e4 e4 | 
     \mark \markup {\circle 4}
     f4 f8 f8 g4 f4~ | f4 e8( d8) e2
@@ -136,7 +136,7 @@ basswords = \lyricmode {\words_full}
 }
 
 \score {
-  \midi { \tempo 4= 80 }
+  \midi {}
   \unfoldRepeats
   \new ChoirStaff
   <<
