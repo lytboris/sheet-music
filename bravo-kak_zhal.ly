@@ -53,25 +53,11 @@ PartPOneVoiceOne =  \relative g' {
   \guitnotesVerseEnvelope
   \guit_C | % 22
   \guit_Cm | % 23
-  \guit_G_short | % 24
-  R2. | % 25
-  \guit_G | % 26
-  \guit_Em | % 27
-  \guit_Am | % 28
-  \guit_Fism | % 29
-  \guit_G |
-  \barNumberCheck #30
-  \guit_Em | % 31
-  \guit_Am | % 32
-  \guit_FismSept | % 33
-  \guit_G | % 34
-  \guit_Em | % 35
-  \guit_Am | % 36
-  \guit_Fism | % 37
-  \guit_C | % 38
-  \guit_Cm | % 39
-   \guit_G_short |
-  R2. | % 41
+  }
+  \alternative {{  \guit_G_short | % 24
+  R2. | }}
+  \repeat volta 2 {
+   \guit_G_short | R2.
    \guit_C_stroke | % 42
    \guit_B | % 43
    \guit_EmChorus | % 44
@@ -152,14 +138,11 @@ PartPTwoVoiceOne =  \relative d {
   \mennotesVerseEnvelope
   <g c,>2. ~ ~ | % 22
    <g c,>2. | % 23
-  \tenornotesFintTwo
-  \mennotesVerseEnvelope
-  <d g>4. r4. | % 6
-  \tenornotesFintOne
-  \mennotesVerseEnvelope
-   <g c,>2. ~ ~ | % 38
-   <g c,>2. | % 39
-  R2. | % 45
+  }
+  \alternative {{ \tenornotesFintTwo }
+  { R2. | }} % 45
+  \repeat volta 2 {
+  R2.
   \tenornotesChorus
   R2.*2 | % 59
   }
@@ -232,11 +215,12 @@ PartPThreeVoiceOne =  \relative d' {
   \repeat volta 2 {
   \altonotesVerse
   R2.*2 \break | % 24
-  r4. r4  d8 | % 9
-  \altonotesVerse
-  R2. | % 39
+  }
+  \alternative { {  r4. r4  d8 |   }
+  }
   \break
   \mark \markup {\box "Припев"}
+  \repeat volta 2 {
   \altonotesChorus
   \break
   }
