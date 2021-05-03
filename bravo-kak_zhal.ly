@@ -91,30 +91,10 @@ PartPOneVoiceOne =  \relative g' {
   }
   \alternative {{ \guit_G_short | % 58
   R2. | % 59
-  } { \guit_G_short
-   R2.*1 | % 98
-   \guit_C_stroke | % 99
-   \guit_B |
-   \guit_EmChorus | % 101
-   \guit_UnknChorus | % 102
-   \guit_C | % 103
-   \guit_B | % 104
-   \guit_EmChorus | % 105
-   \guit_UnknChorus | % 106
-   \guit_C | % 107
-   \guit_B | % 108
-   \guit_EmChorus | % 109
-   \guit_UnknChorus |
-   \guit_C | % 111
-   \guit_D | % 112
-   \guit_G_stroke | % 113
-   \guit_Cm_stroke | % 114
-   <b d g>4. -.  g8  b8  d8 \tempo
+  } { <b d g>4. -.  g8  b8  d8 }} \tempo
   4=90 | % 115
    e4 d4 b8  a8 | % 116
    g4. r4. \bar "|."
-  }
-  }
 }
 
 mennotesVerseEnvelope = \relative d {
@@ -129,31 +109,66 @@ mennotesVerseEnvelopeVerse = \relative d {
    <b e>4. -. r4  <b e>8 | % 7
    <c g'>4. -. r4. | % 8
 }
+
+tenornotesFintOne = \relative d {
+  r8 d4 e8 g b | % 15
+  d4 e g8. a16 | % 16
+   b8 g << { \tiny b8 a4. } \\ { e8  d4. } >> | % 17
+}
+
+tenornotesFintTwo = \relative d {
+   r4 d8  e g8. a16 %24
+   b4  a8 ~  a8  g8  e8 | % 25
+}
+
+tenornotesChorus = \relative d {
+   c4.  d4. | % 41
+   e2. | % 42
+   fis2. | % 43
+   r4.  b4. | % 44
+   a4.  fis4. | % 45
+   g4.  e4. | % 46
+   fis4. r4. | % 47
+   r4.  e4. | % 48
+   fis4.  e8  d8  e8 | % 49
+   c2. |
+   b2. | % 51
+   r4.  b'4. | % 52
+   a4.  fis4. | % 53
+   g4.  e4. | % 54
+   fis4. r4. | % 55
+}
+
+
 PartPTwoVoiceOne =  \relative d {
-  \clef "bass" \time 6/8 \key g \major | % 1
+  \clef "treble_8" \time 6/8 \key g \major | % 1
   \mennotesVerseEnvelope
   \mennotesVerseEnvelopeVerse
   R2. | % 9
   \repeat volta 2 {
   \mennotesVerseEnvelope
-  \mennotesVerseEnvelopeVerse
-  R2. | % 17
+  <d g>4. r4. | % 6
+  \tenornotesFintOne
   \mennotesVerseEnvelope
   <g c,>2. ~ ~ | % 22
    <g c,>2. | % 23
-  R2.*2 | % 25
+  \tenornotesFintTwo
   \mennotesVerseEnvelope
-  \mennotesVerseEnvelopeVerse
-  R2. | % 33
+  <d g>4. r4. | % 6
+  \tenornotesFintOne
   \mennotesVerseEnvelope
    <g c,>2. ~ ~ | % 38
    <g c,>2. | % 39
-  R2.*6 | % 45
-  R2.*12 | % 59
+  R2. | % 45
+  \tenornotesChorus
+  R2.*2 | % 59
   }
   \alternative {{ R2.*2 }
-  {R2.*2 | % 67
-   <c e>2. | % 99
+  { R2. }}
+  R2.*2 \bar "|."
+}
+mennotesAltEnding = \relative g' {
+    <c e>2. | % 99
    <b dis>2. | 
    <b e>2. | % 101
    <b d>2. | % 102
@@ -170,8 +185,6 @@ PartPTwoVoiceOne =  \relative d {
    <b d>2. | % 113
    <c dis>2. | % 114
   R2.*3 \bar "|."
-  }
-  }
 }
 
 altonotesVerse = \relative d' {
@@ -229,63 +242,8 @@ PartPThreeVoiceOne =  \relative d' {
   }
   \alternative {{   R2. | % 58
   r4. r4  d8 | % 59
-  } {
-  \altonotesChorus
-  R2.*3 \bar "|."
-  }
-  }
-}
-
-tenornotesFintOne = \relative d {
-  r8 d4 e8 g b | % 15
-  d4 e g8. a16 | % 16
-   b8 g << { \tiny b8 a4. } \\ { e8  d4. } >> | % 17
-}
-
-tenornotesFintTwo = \relative d {
-   r4 d8  e g8. a16 %24
-   b4  a8 ~  a8  g8  e8 | % 25
-   d4. -. r4. | % 26
-}
-
-tenornotesChorus = \relative d {
-   c4.  d4. | % 41
-   e2. | % 42
-   fis2. | % 43
-   r4.  b4. | % 44
-   a4.  fis4. | % 45
-   g4.  e4. | % 46
-   fis4. r4. | % 47
-   r4.  e4. | % 48
-   fis4.  e8  d8  e8 | % 49
-   c2. |
-   b2. | % 51
-   r4.  b'4. | % 52
-   a4.  fis4. | % 53
-   g4.  e4. | % 54
-   fis4. r4. | % 55
-}
-
-PartPFourVoiceOne =  \relative d {
-  \clef "treble_8" \time 6/8 \key g \major | % 1
-  R2.*8 | % 14
-  \repeat volta 2 {
-  R2.*5 | % 14
-  \tenornotesFintOne
-   R2.*6 | % 23
-   \tenornotesFintTwo
-   R2.*4 | \barNumberCheck #30
-   \tenornotesFintOne
-   R2.*7 | \barNumberCheck #40
-   \tenornotesChorus
-   R2.*2 | % 64
-   }
-   \alternative {
-   {R2.*2 }
-   { R2.
-   \tenornotesChorus
-   R2.*5 \bar "|."
-   }}
+  } { R2. } }
+  R2.*2 \bar "|."
 }
 
 % The score definition
@@ -320,16 +278,6 @@ gigaStaff = {
         \context Voice = "PartPThreeVoiceOne" {  \PartPThreeVoiceOne }
       >>
     >>
-    \new Staff
-    <<
-      \set Staff.instrumentName = "Tenor"
-      \set Staff.shortInstrumentName = "T."
-
-      \context Staff <<
-        \context Voice = "PartPFourVoiceOne" {  \voiceOne \PartPFourVoiceOne }
-      >>
-    >>
-
   >>
 }
 
