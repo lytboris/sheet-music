@@ -94,22 +94,22 @@ guitarnotes =  \relative g' {
 }
 
 mennotesVerseEnvelope = \relative d {
-   <d g>4. -. r4  <d g>8 |
-   <b e>4. -. r4  <b e>8 | 
-   <c g'>4. -. r4  <c g'>8 |
-   <d a'>4. -.  <d a'>8  <e b'>8  <d a'>8 |
+   <g d'>4. -. r4  <g d'>8 |
+   <b e,>4. -. r4  <b e,>8 | 
+   <g c,>4. -. r4  <g c,>8 |
+   <a d,>4. -.  <a d,>8  <b e,>8  <a d,>8 |
 }
 
 mennotesVerseEnvelopeVerse = \relative d {
-   <d g>4. -. r4  <d g>8 |
-   <b e>4. -. r4  <b e>8 |
-   <c g'>4. -. r4. |
+   <g d'>4. -. r4  <g d'>8 |
+   <b e,>4. -. r4  <b e,>8 |
+   <c g>4. -. r4. |
 }
 
 tenornotesFintOne = \relative d {
-  r8 d4 e8 g b |
-  d4 e g8. a16 |
-   b8 g << { \tiny b8 a4. } \\ { e8  d4. } >> |
+  r8 \stemDown { d4 e8 g b |
+  d4 e } \stemUp { g8. a16 |
+   b8 g } < \tweak font-size #-2 b e,>8 < \tweak font-size #-2 a d,>4. | |
 }
 
 tenornotesFintTwo = \relative d {
@@ -128,8 +128,8 @@ tenornotesChorus = \relative d {
    r4.  e4. |
    fis4.  e8  d8  e8 |
    c2. |
-   b2. |
-   r4.  b'4. | 
+   b'2. |
+   r4.  b4. | 
    a4.  fis4. | 
    g4.  e4. |
    fis4. r4. |
@@ -181,7 +181,7 @@ mennotesAltEnding = \relative g' {
   R2.*3 \bar "|."
 }
 
-altonotesVerse = \relative d' {
+solonotesVerse = \relative d' {
   < \tweak font-size #-2 d' b>4 < \tweak font-size #-2 e c>8 r < \tweak font-size #-2 d b> < \tweak font-size #-2 c a> |
   < \tweak font-size #-2 c a>( < \tweak font-size #-2 b g>4) ~ ~ < \tweak font-size #-2 b g>4. |
   r4  e,4 g8  a8 |
@@ -196,7 +196,7 @@ altonotesVerse = \relative d' {
    g2. |
 }
 
-altonotesChorus = \relative d' {
+solonotesChorus = \relative d' {
    r4. g4. |
    a4. r4  b8 |
    d4. ~  d8 r8  c8 |
@@ -217,18 +217,18 @@ altonotesChorus = \relative d' {
    g2. |
 }
 
-altonotes =  \relative d' {
+solonotes =  \relative d' {
   \clef "treble" \time 6/8 \key g \major |
   R2.*7 |
   r4. r4  d8 \mark \markup {\box "Куплет"} |
   \repeat volta 2 {
   \repeat volta 2 {
-  \altonotesVerse
+  \solonotesVerse
   R2.
   }
   \alternative {{R2. | r4. r4  d8 | }{}}
   \mark \markup {\box "Припев"}
-  \altonotesChorus
+  \solonotesChorus
   }
   \alternative {{ R2. |
   r4. r4  d8 |
@@ -241,7 +241,7 @@ leftbrace = \markup {
   \lookup "brace80"
 }
 
-altowordsVerseOne = \lyricmode {
+solowordsVerseOne = \lyricmode {
   \set stanza = \markup {
     \column { \vspace #.33 "1. "}
     \leftbrace
@@ -253,14 +253,14 @@ altowordsVerseOne = \lyricmode {
 \tag #'printonly { По }
 }
 
-altowordsVerseOnea = \lyricmode {
+solowordsVerseOnea = \lyricmode {
 По э той мос то вой __
 Вдоль э тих скве ров до ут ра.
 Бро ди ли мы с__то бой, __
 И э то бы ло, как вче ра.
 }
 
-altowordsVerseTwo = \lyricmode {
+solowordsVerseTwo = \lyricmode {
 \set stanza = "2. "
 Все так же, как тог да, __
 Та кой же мяг кий, лун ный свет,
@@ -268,7 +268,7 @@ altowordsVerseTwo = \lyricmode {
 И лишь те бя со мно ю нет.
 }
 
-altowordsChorus = \lyricmode {
+solowordsChorus = \lyricmode {
 Как жаль,
 Но ты се го дня не со мной,
 И толь ко каж дый раз,
@@ -278,33 +278,33 @@ altowordsChorus = \lyricmode {
 \tag #'printonly { Все }
 }
 
-altowordsprint = {
+solowordsprint = {
   << 
-  { \altowordsVerseOne }
+  { \solowordsVerseOne }
   \new Lyrics {
-    \set associatedVoice = "alto"
-    \altowordsVerseOnea
+    \set associatedVoice = "solo"
+    \solowordsVerseOnea
   }
   \new Lyrics {
-    \set associatedVoice = "alto"
-    \altowordsVerseTwo
+    \set associatedVoice = "solo"
+    \solowordsVerseTwo
   }
   >>
-  \altowordsChorus
+  \solowordsChorus
 }
 
-altowordsmidi = {
-  \altowordsVerseOne
-  \altowordsVerseOnea
-  \altowordsChorus
-  \altowordsVerseTwo
-  \altowordsVerseTwo % this is kinda bad but hey
-  \altowordsChorus
+solowordsmidi = {
+  \solowordsVerseOne
+  \solowordsVerseOnea
+  \solowordsChorus
+  \solowordsVerseTwo
+  \solowordsVerseTwo % this is kinda bad but hey
+  \solowordsChorus
 }
 
-altowords = {
-\tag #'printonly { \altowordsprint }
-\tag #'midionly { \altowordsmidi }
+solowords = {
+\tag #'printonly { \solowordsprint }
+\tag #'midionly { \solowordsmidi }
 }
 
 
@@ -325,8 +325,8 @@ gigaStaff = {
   \new ChoirStaff \with {midiInstrument = #"choir aahs"} <<
     \new Staff
     <<
-      \set Staff.instrumentName = "Men"
-      \set Staff.shortInstrumentName = "M."
+      \set Staff.instrumentName = "Alto/Tenor"
+      \set Staff.shortInstrumentName = "A/T"
       \set Staff.midiMinimumVolume = #0.3
       \set Staff.midiMaximumVolume = #0.5
       \context Staff <<
@@ -335,12 +335,12 @@ gigaStaff = {
     >>
     \new Staff
     <<
-      \set Staff.instrumentName = "Alto"
-      \set Staff.shortInstrumentName = "A."
+      \set Staff.instrumentName = "Solo"
+      \set Staff.shortInstrumentName = "S."
 
-      \new Voice = "alto" <<
-        \altonotes
-        \context Lyrics = "alto" \lyricsto "alto" \altowords
+      \new Voice = "solo" <<
+        \solonotes
+        \context Lyrics = "solo" \lyricsto "solo" \solowords
       >>
     >>
   >>
