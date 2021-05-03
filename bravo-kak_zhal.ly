@@ -17,8 +17,8 @@ guit_G_stroke =	\relative g' { g8^G  b8  d8  <b, d g>4. -. }
 guit_Em =	\relative g' { r8^Em  e8  g8  b8  g4 -. }
 guit_EmChorus =	\relative g' { e8^Em  g8  b8  e8  e,8  g8 }
 guit_Am  =	\relative g  { r8^Am  c8  e8  a4. -. }
-guit_Fism =	\relative g' { r8^\markup {"F#m"}  fis8  a8  c4. -. }
-guit_FismSept =	\relative g' { <fis a c d>4.^\markup {"F#m7"} -.  <fis a c d>4. -. }
+guit_DSept =	\relative g' { r8^\markup {"D7"}  fis8  a8  c4. -. }
+guit_DSept_stroke = \relative g' { <fis a c d>4.^\markup {"D7"} -.  <fis a c d>4. -. }
 guit_C = 	\relative g' { r8  e8^C  g8  c4. -. }
 guit_C_stroke =	\relative g  { c8  e^C g <e g c>4. -. }
 guit_Cm =	\relative g' { r8  dis8^Cm  g8  d'8  c8  a8 }
@@ -31,7 +31,7 @@ guitnotesVerseEnvelope = \relative g' {
   \guit_G | 
   \guit_Em | 
   \guit_Am |
-  \guit_Fism |
+  \guit_DSept |
 }
 
 guitnotesVerseEnvelopeVerse = \relative g' {
@@ -45,13 +45,13 @@ guitarnotes =  \relative g' {
   \clef "treble" \time 6/8 \key g \major | 
   \guitnotesVerseEnvelope
   \guitnotesVerseEnvelopeVerse
-  \guit_FismSept | 
+  \guit_DSept_stroke | 
   \repeat volta 2 {
 % verse
   \repeat volta 2 {
   \guitnotesVerseEnvelope
   \guitnotesVerseEnvelopeVerse
-  \guit_FismSept | 
+  \guit_DSept_stroke | 
   \guitnotesVerseEnvelope
   \guit_C | 
   \guit_Cm | 
