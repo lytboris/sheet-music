@@ -249,7 +249,8 @@ altowordsVerseOne = \lyricmode {
 На тем ный ряд до мов __
 Лишь о ди но кий свет в__ок не.
 И стук мо их ша гов __
-Зву чит в__пол ноч ной ти ши не. По
+Зву чит в__пол ноч ной ти ши не.
+\tag #'printonly { По }
 }
 
 altowordsVerseOnea = \lyricmode {
@@ -274,10 +275,10 @@ altowordsChorus = \lyricmode {
 Ког да и ду по э той мос то вой,
 Я ду ма ю о нас __
 
-Все
+\tag #'printonly { Все }
 }
 
-altowords = {
+altowordsprint = {
   << 
   { \altowordsVerseOne }
   \new Lyrics {
@@ -291,7 +292,21 @@ altowords = {
   >>
   \altowordsChorus
 }
-  
+
+altowordsmidi = {
+  \altowordsVerseOne
+  \altowordsVerseOnea
+  \altowordsChorus
+  \altowordsVerseTwo
+  \altowordsVerseTwo % this is kinda bad but hey
+  \altowordsChorus
+}
+
+altowords = {
+\tag #'printonly { \altowordsprint }
+\tag #'midionly { \altowordsmidi }
+}
+
 
 % The score definition
 gigaStaff = {
@@ -333,12 +348,14 @@ gigaStaff = {
 }
 
 \score {
+  \removeWithTag #'midionly
   \gigaStaff
   \layout {}
 }
 
 \score {
   \unfoldRepeats 
+  \removeWithTag #'printonly
   \gigaStaff
   \midi {\tempo 4 = 105 }
 }
