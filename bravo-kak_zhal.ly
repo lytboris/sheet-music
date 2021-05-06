@@ -11,6 +11,13 @@ title = "Браво - Как жаль"
   }
 }
 
+mytiny =
+#(define-music-function
+     (note)
+     (ly:music?)
+     #{ \tweak font-size #-2 #note #}
+)
+
 guit_G  =	\relative g' { r8  g8^G  b8  d8  b4 -. }
 guit_G_short =	\relative g { <b d g>4.^G -. r4. }
 guit_G_stroke =	\relative g' { g8^G  b8  d8  <b, d g>4. -. }
@@ -109,7 +116,7 @@ mennotesVerseEnvelopeVerse = \relative d {
 tenornotesFintOne = \relative d {
   r8 \stemDown { d4 e8 g b |
   d4 e } \stemUp { g8. a16 |
-   b8 g } < \tweak font-size #-2 b e,>8 < \tweak font-size #-2 a d,>4. | |
+   b8 g } < \mytiny b e,>8 < \mytiny a d,>4. | |
 }
 
 tenornotesFintTwo = \relative d {
@@ -182,15 +189,15 @@ mennotesAltEnding = \relative g' {
 }
 
 solonotesVerse = \relative d' {
-  < \tweak font-size #-2 d' b>4 < \tweak font-size #-2 e c>8 r < \tweak font-size #-2 d b> < \tweak font-size #-2 c a> |
-  < \tweak font-size #-2 c a>( < \tweak font-size #-2 b g>4) ~ ~ < \tweak font-size #-2 b g>4. |
+  < \mytiny d' b>4 < \mytiny e c>8 r < \mytiny d b> < \mytiny c a> |
+  < \mytiny c a>( < \mytiny b g>4) ~ ~ < \mytiny b g>4. |
   r4  e,4 g8  a8 |
    b8  a4  g4  e8 |
    d2 r4 |
   R2.*2 |
   r4. r4  d8 | % 17
-   < \tweak font-size #-2 d' b>4 < \tweak font-size #-2 e c>8 < \tweak font-size #-2 d b>4 < \tweak font-size #-2 c a>8 |
-   < \tweak font-size #-2 c a>( < \tweak font-size #-2 b g>4) ~ ~ < \tweak font-size #-2 b g>4. |
+   < \mytiny d' b>4 < \mytiny e c>8 < \mytiny d b>4 < \mytiny c a>8 |
+   < \mytiny c a>( < \mytiny b g>4) ~ ~ < \mytiny b g>4. |
   r4  e,4  g8  a8 | 
    b4  a8 r8  g8  a8 |
    g2. |
