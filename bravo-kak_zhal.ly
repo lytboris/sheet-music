@@ -128,8 +128,8 @@ tenornotesChorus = \relative d {
    r4.  e4. |
    fis4.  e8  d8  e8 |
    c2. |
-   b'2. |
-   r4.  b4. | 
+   dis2. |
+   r4.  b'4. |
    a4.  fis4. | 
    g4.  e4. |
    fis4. r4. |
