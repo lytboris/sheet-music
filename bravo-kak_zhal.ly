@@ -110,7 +110,7 @@ mennotesVerseEnvelope = \relative d {
 mennotesVerseEnvelopeVerse = \relative d {
    <g d'>4. -. r4  <g d'>8 |
    <b e,>4. -. r4  <b e,>8 |
-   <c g>4. -. r4. |
+   <g c,>4. -. r4. |
 }
 
 tenornotesFintOne = \relative d {
@@ -121,7 +121,7 @@ tenornotesFintOne = \relative d {
 
 tenornotesFintTwo = \relative d {
    r4 d8  e g8. a16
-   b4  a8 ~  a8  g8  e8 |
+   b4  a4  g8  e8 |
 }
 
 tenornotesChorus = \relative d {
